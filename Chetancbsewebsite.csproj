@@ -111,6 +111,10 @@
     <Content Include="Contact\ContactUs.aspx" />
     <Content Include="News\NewsEvents.aspx" />
     <Content Include="News\NewsDetail.aspx" />
+    <Content Include="Errors\404.aspx" />
+    <Content Include="Errors\500.aspx" />
+    <Content Include="robots.txt" />
+    <Content Include="sitemap.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -396,6 +400,20 @@
     </Compile>
     <Compile Include="News\NewsDetail.aspx.designer.cs">
       <DependentUpon>NewsDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Errors\500.aspx.cs">
+      <DependentUpon>500.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Errors\500.aspx.designer.cs">
+      <DependentUpon>500.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

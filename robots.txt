@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /Admin/
+Disallow: /Uploads/Popups/
+Disallow: /bin/
+Disallow: /obj/
+
+Sitemap: https://www.chetanpublicschhubballi.com/sitemap.xml
