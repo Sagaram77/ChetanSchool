@@ -1,0 +1,301 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="Chetancbsewebsite.MasterPages.Site" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Chetan Public School, Hubballi | CBSE Affiliated</title>
+    
+    <!-- Meta SEO -->
+    <meta name="description" content="Chetan Public School (CPS) Hubballi is a premier CBSE affiliated institution (Affiliation No: 831020) offering holistic schooling, smart classrooms, competitive IIT/NTSE foundation, and state-of-the-art facilities." />
+    <meta name="keywords" content="Chetan Public School, CPS Hubballi, CBSE School Hubli, Best School in Hubballi, DVEA Trust, Akshay Nagar School, Admissions Hubli" />
+    <meta name="author" content="Chetan Public School, Hubballi" />
+
+    <!-- Bootstrap 5 CSS & Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+    
+    <!-- Custom School Stylesheet -->
+    <link href="~/Assets/css/style.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="mainForm" runat="server">
+        <!-- 1. Top Informational Bar -->
+        <header class="top-bar">
+            <div class="container">
+                <div class="d-flex flex-wrap justify-content-between align-items-center">
+                    <div class="d-flex align-items-center gap-3 flex-wrap">
+                        <span><i class="bi bi-mortarboard-fill text-warning me-1"></i> CBSE Affiliation No: <strong>831020</strong></span>
+                        <span class="d-none d-md-inline">|</span>
+                        <span class="d-none d-md-inline"><i class="bi bi-hash text-warning me-1"></i> School Code: <strong>45914</strong></span>
+                        <span class="d-none d-lg-inline">|</span>
+                        <span class="d-none d-lg-inline"><i class="bi bi-clock text-warning me-1"></i> Mon - Sat: 8:30 AM - 4:00 PM</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3 mt-1 mt-sm-0">
+                        <a href="tel:08362955578"><i class="bi bi-telephone-fill me-1"></i> 0836-2955578</a>
+                        <span class="d-none d-sm-inline">|</span>
+                        <a href="mailto:chetanschool2016@gmail.com" class="d-none d-sm-inline"><i class="bi bi-envelope-fill me-1"></i> chetanschool2016@gmail.com</a>
+                        <a href="~/Admin/Login.aspx" runat="server" class="badge bg-warning text-dark text-decoration-none px-2 py-1"><i class="bi bi-shield-lock-fill"></i> Admin Login</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 2. Main Brand Header -->
+        <section class="header-brand-section">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-8 col-md-12 d-flex align-items-center gap-3">
+                        <div class="school-logo-badge">
+                            <i class="bi bi-mortarboard"></i>
+                        </div>
+                        <div>
+                            <div class="school-trust">Managed by: Dyavappanavar - Valasang Educational & Academic Trust</div>
+                            <h1 class="school-title">CHETAN PUBLIC SCHOOL</h1>
+                            <p class="school-subtitle"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Akshay Nagar, Hubballi - 580030, Karnataka</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 d-none d-lg-flex justify-content-end align-items-center gap-3">
+                        <div class="affiliation-badge text-end">
+                            <div class="text-secondary small fw-bold">OUR MOTTO</div>
+                            <div class="text-primary fw-bold fs-6">"Moulding Minds to Excel"</div>
+                        </div>
+                        <a id="lnkHeaderAdmission" runat="server" target="_blank" class="btn btn-warning fw-bold text-dark px-3 py-2 shadow-sm">
+                            <i class="bi bi-pencil-square me-1"></i> Admissions 2026-27
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Navigation Bar -->
+        <nav class="navbar navbar-expand-lg main-navbar">
+            <div class="container">
+                <a class="navbar-brand d-lg-none text-white fw-bold" href="~/Default.aspx" runat="server">
+                    <i class="bi bi-house-door-fill text-warning me-1"></i> CPS HUBBALLI
+                </a>
+                <button class="navbar-toggler text-white border-white my-2" type="button" data-bs-toggle="collapse" data-bs-target="#cpsNavbar" aria-controls="cpsNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-2"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="cpsNavbar">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Default.aspx" runat="server"><i class="bi bi-house-door"></i> Home</a>
+                        </li>
+                        <!-- About Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                About Us
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/About/AboutUs.aspx" runat="server"><i class="bi bi-info-circle me-2"></i>About School</a></li>
+                                <li><a class="dropdown-item" href="~/About/VisionMission.aspx" runat="server"><i class="bi bi-compass me-2"></i>Vision & Mission</a></li>
+                                <li><a class="dropdown-item" href="~/About/PrincipalsDesk.aspx" runat="server"><i class="bi bi-person-badge me-2"></i>Principal's Desk</a></li>
+                                <li><a class="dropdown-item" href="~/About/Management.aspx" runat="server"><i class="bi bi-people me-2"></i>Trust Management</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="~/About/ManagingCommittee.aspx" runat="server"><i class="bi bi-diagram-3 me-2"></i>Managing Committee (SMC)</a></li>
+                            </ul>
+                        </li>
+                        <!-- Academics Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Academics
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Academics/Curriculum.aspx" runat="server"><i class="bi bi-journal-bookmark me-2"></i>CBSE Curriculum</a></li>
+                                <li><a class="dropdown-item" href="~/Academics/CompetitiveCoaching.aspx" runat="server"><i class="bi bi-award me-2"></i>IIT-JEE & NTSE Foundation</a></li>
+                                <li><a class="dropdown-item" href="~/Academics/Faculty.aspx" runat="server"><i class="bi bi-person-lines-fill me-2"></i>Faculty & Staff Directory</a></li>
+                                <li><a class="dropdown-item" href="~/Academics/AcademicCalendar.aspx" runat="server"><i class="bi bi-calendar-event me-2"></i>Academic Calendar</a></li>
+                                <li><a class="dropdown-item" href="~/Academics/BooksList.aspx" runat="server"><i class="bi bi-book me-2"></i>Prescribed Book List</a></li>
+                            </ul>
+                        </li>
+                        <!-- Campus & Facilities -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Campus & Facilities
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Campus/Facilities.aspx" runat="server"><i class="bi bi-building me-2"></i>Infrastructure Overview</a></li>
+                                <li><a class="dropdown-item" href="~/Campus/Laboratories.aspx" runat="server"><i class="bi bi-radioactive me-2"></i>Science & Computer Labs</a></li>
+                                <li><a class="dropdown-item" href="~/Campus/Library.aspx" runat="server"><i class="bi bi-book-half me-2"></i>Library (British Council & American Library)</a></li>
+                                <li><a class="dropdown-item" href="~/Campus/Transport.aspx" runat="server"><i class="bi bi-bus-front me-2"></i>School Transport Fleet</a></li>
+                            </ul>
+                        </li>
+                        <!-- Student Life -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Student Life
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/StudentLife/HouseSystem.aspx" runat="server"><i class="bi bi-shield-fill-check me-2"></i>The 4-House System</a></li>
+                                <li><a class="dropdown-item" href="~/StudentLife/Activities.aspx" runat="server"><i class="bi bi-palette me-2"></i>Co-Curricular & Clubs</a></li>
+                                <li><a class="dropdown-item" href="~/StudentLife/Sports.aspx" runat="server"><i class="bi bi-trophy me-2"></i>Sports & Physical Education</a></li>
+                                <li><a class="dropdown-item" href="~/StudentLife/Achievements.aspx" runat="server"><i class="bi bi-star-fill me-2"></i>Board Toppers & Honors</a></li>
+                            </ul>
+                        </li>
+                        <!-- Gallery -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Gallery/PhotoGallery.aspx" runat="server"><i class="bi bi-images me-2"></i>Photo Albums</a></li>
+                                <li><a class="dropdown-item" href="~/Gallery/VideoGallery.aspx" runat="server"><i class="bi bi-play-circle me-2"></i>Video Gallery</a></li>
+                            </ul>
+                        </li>
+                        <!-- CBSE Disclosure -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Disclosures/MandatoryDisclosure.aspx" runat="server">
+                                CBSE Disclosures
+                            </a>
+                        </li>
+                        <!-- Admissions -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Admissions
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="~/Admissions/AdmissionProcedure.aspx" runat="server"><i class="bi bi-check2-circle me-2"></i>Admission Procedure</a></li>
+                                <li><a class="dropdown-item" href="~/Admissions/FeeStructure.aspx" runat="server"><i class="bi bi-cash-stack me-2"></i>Fee Structure</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a id="lnkNavAdmission" runat="server" target="_blank" class="dropdown-item text-primary fw-bold"><i class="bi bi-box-arrow-up-right me-2 text-warning"></i>Online Admission Form (ERP / Drive)</a></li>
+                            </ul>
+                        </li>
+                        <!-- Contact Us -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="~/Contact/ContactUs.aspx" runat="server"><i class="bi bi-envelope"></i> Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 4. Dynamic News Ticker (Right to Left Scrolling) -->
+        <div class="news-ticker-container">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <div class="ticker-badge me-3">
+                        <i class="bi bi-megaphone-fill"></i> NOTICES
+                    </div>
+                    <div class="ticker-marquee-box flex-grow-1">
+                        <div class="ticker-marquee-track">
+                            <asp:Repeater ID="rptTickers" runat="server">
+                                <ItemTemplate>
+                                    <span class="ticker-item me-5">
+                                        <i class="bi bi-bell-fill text-danger me-1"></i>
+                                        <a href='<%# ResolveUrl("~/News/NewsDetail.aspx?id=" + Eval("NewsId")) %>'>
+                                            <%# Eval("Title") %>
+                                        </a>
+                                    </span>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                        </div>
+                    </div>
+                    <a href="~/News/NewsEvents.aspx" runat="server" class="btn btn-sm btn-outline-secondary d-none d-md-inline ms-3">
+                        View All
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Main Content Area -->
+        <main>
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </main>
+
+        <!-- 6. Footer -->
+        <footer class="main-footer">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- About Col -->
+                    <div class="col-lg-4 col-md-6">
+                        <h5 class="footer-widget-title">CHETAN PUBLIC SCHOOL</h5>
+                        <p class="small text-secondary">
+                            Affiliated to the Central Board of Secondary Education (CBSE No: 831020), Chetan Public School is managed by the Dyavappanavar - Valasang Educational & Academic Trust. We nurture young minds from Kindergarten to Grade 10 to excel academically, culturally, and ethically.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary text-white p-2 me-1"><i class="bi bi-check-circle me-1"></i> CBSE Affiliated</span>
+                            <span class="badge bg-warning text-dark p-2"><i class="bi bi-star-fill me-1"></i> 100% Board Results</span>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="col-lg-2 col-md-6">
+                        <h5 class="footer-widget-title">Quick Links</h5>
+                        <ul class="footer-links">
+                            <li><a href="~/About/AboutUs.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> About School</a></li>
+                            <li><a href="~/Academics/Curriculum.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> Academics</a></li>
+                            <li><a href="~/Campus/Facilities.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> Campus Facilities</a></li>
+                            <li><a href="~/Disclosures/MandatoryDisclosure.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> CBSE Disclosures</a></li>
+                            <li><a id="lnkFooterAdmission" runat="server" target="_blank"><i class="bi bi-chevron-right me-1"></i> Online Admission Form</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Academic Info -->
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="footer-widget-title">Admissions & Disclosures</h5>
+                        <ul class="footer-links">
+                            <li><a href="~/Admissions/AdmissionProcedure.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> Admission Criteria</a></li>
+                            <li><a href="~/Admissions/FeeStructure.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> Fee Structure</a></li>
+                            <li><a href="~/Academics/AcademicCalendar.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> Academic Calendar</a></li>
+                            <li><a href="~/Academics/BooksList.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> Prescribed Book List</a></li>
+                            <li><a href="~/About/ManagingCommittee.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> SMC Committee</a></li>
+                            <li><a href="~/Gallery/PhotoGallery.aspx" runat="server"><i class="bi bi-chevron-right me-1"></i> Photo Gallery</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="footer-widget-title">Contact Information</h5>
+                        <p class="small text-secondary mb-2">
+                            <i class="bi bi-geo-alt-fill text-warning me-2"></i>
+                            Chetan Public School, Akshay Nagar, Hubballi – 580030, Karnataka, India
+                        </p>
+                        <p class="small text-secondary mb-2">
+                            <i class="bi bi-telephone-fill text-warning me-2"></i>
+                            0836-2955578 / 0836-2330898
+                        </p>
+                        <p class="small text-secondary mb-2">
+                            <i class="bi bi-envelope-fill text-warning me-2"></i>
+                            chetanschool2016@gmail.com
+                        </p>
+                        <p class="small text-secondary">
+                            <i class="bi bi-clock-fill text-warning me-2"></i>
+                            Office: 8:30 AM – 4:00 PM (Mon-Sat)
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="container d-flex flex-wrap justify-content-between align-items-center">
+                    <div>
+                        &copy; <%: DateTime.Now.Year %> Chetan Public School, Hubballi. All rights reserved.
+                    </div>
+                    <div class="mt-2 mt-md-0">
+                        <span class="me-3">CBSE Affiliation No: 831020</span>
+                        <a href="~/Admin/Login.aspx" runat="server" class="text-secondary text-decoration-none"><i class="bi bi-shield-lock me-1"></i> Administrative Portal</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button type="button" id="backToTopBtn" class="btn btn-warning shadow position-fixed bottom-0 end-0 m-4 rounded-circle" style="display:none; z-index: 1000; width: 45px; height: 45px;" title="Back to top">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </form>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="<%= ResolveUrl("~/Assets/js/main.js") %>"></script>
+    
+    <asp:ContentPlaceHolder ID="ScriptsContent" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
