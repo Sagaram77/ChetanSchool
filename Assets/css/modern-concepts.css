@@ -1,0 +1,257 @@
+/* ==========================================================================
+   Modern Concept Designs Styling - Chetan Public School (CPS) Hubballi
+   Inspired by Chetan Smart Campus (https://www.chetansmartcampus.org/)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A. Keyframe Animations & Micro-Interactions
+   -------------------------------------------------------------------------- */
+@keyframes floatSlow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes floatReverse {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(12px) rotate(-1deg); }
+}
+
+@keyframes pulseGlowCyan {
+    0%, 100% { box-shadow: 0 0 15px rgba(0, 210, 255, 0.35); }
+    50% { box-shadow: 0 0 35px rgba(0, 210, 255, 0.75); }
+}
+
+@keyframes pulseGlowGold {
+    0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.35); }
+    50% { box-shadow: 0 0 35px rgba(245, 158, 11, 0.7); }
+}
+
+@keyframes pulseGlowTeal {
+    0%, 100% { box-shadow: 0 0 15px rgba(13, 148, 136, 0.35); }
+    50% { box-shadow: 0 0 35px rgba(13, 148, 136, 0.7); }
+}
+
+@keyframes shimmerEffect {
+    0% { transform: translateX(-150%); }
+    100% { transform: translateX(150%); }
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animate-float-slow {
+    animation: floatSlow 5s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+    animation: floatReverse 6s ease-in-out infinite;
+}
+
+/* --------------------------------------------------------------------------
+   B. Interactive Presentation Concept Switcher Toolbar
+   -------------------------------------------------------------------------- */
+.concept-preview-bar {
+    background: linear-gradient(135deg, #091b34 0%, #112d4e 100%);
+    border-bottom: 2px solid #f59e0b;
+    padding: 10px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 1050;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.concept-preview-pill {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #e2e8f0;
+}
+
+.concept-preview-pill:hover {
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.concept-preview-pill.active {
+    background: #f59e0b;
+    color: #0b1e36;
+    border-color: #f59e0b;
+    font-weight: 700;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   C. Glassmorphic Cards & Elevated Modern Containers
+   -------------------------------------------------------------------------- */
+.glass-card-dark {
+    background: rgba(11, 30, 54, 0.72);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+.glass-card-light {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 18px;
+    box-shadow: 0 15px 35px rgba(0, 20, 60, 0.08);
+}
+
+.modern-hover-card {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+    border-radius: 16px;
+}
+
+.modern-hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 40px rgba(11, 37, 69, 0.14);
+}
+
+/* --------------------------------------------------------------------------
+   D. Pill Badges & Feature Icons
+   -------------------------------------------------------------------------- */
+.badge-smart {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.badge-cyan-glow {
+    background: rgba(0, 210, 255, 0.12);
+    color: #00d2ff;
+    border: 1px solid rgba(0, 210, 255, 0.35);
+}
+
+.badge-gold-glow {
+    background: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.35);
+}
+
+.badge-teal-glow {
+    background: rgba(13, 148, 136, 0.12);
+    color: #0d9488;
+    border: 1px solid rgba(13, 148, 136, 0.35);
+}
+
+.feature-icon-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    transition: all 0.3s ease;
+}
+
+.modern-hover-card:hover .feature-icon-circle {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* --------------------------------------------------------------------------
+   E. Smart Campus Stat Pill Boxes
+   -------------------------------------------------------------------------- */
+.stat-glass-box {
+    padding: 20px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.stat-glass-box:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stat-glass-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   F. Bento Grid Showcase
+   -------------------------------------------------------------------------- */
+.bento-card {
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    min-height: 240px;
+}
+
+.bento-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+}
+
+.bento-img-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.bento-card:hover .bento-img-bg {
+    transform: scale(1.08);
+}
+
+.bento-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 37, 69, 0.2) 0%, rgba(11, 37, 69, 0.88) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 24px;
+    color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   G. Shimmering CTA Button
+   -------------------------------------------------------------------------- */
+.btn-shimmer {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: rotate(30deg);
+    animation: shimmerEffect 4s infinite;
+}

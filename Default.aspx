@@ -18,9 +18,34 @@
             background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(11, 37, 69, 0.7)), url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
         }
     </style>
+    <link href="~/Assets/css/modern-concepts.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <!-- Principal's Presentation Switcher Toolbar -->
+    <div class="concept-preview-bar">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <div class="d-flex align-items-center gap-2 text-white">
+                <i class="bi bi-palette-fill text-warning fs-5"></i>
+                <span class="small fw-bold text-uppercase tracking-wider">Design Concept Review:</span>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+                <a href="~/Default1.aspx" runat="server" class="concept-preview-pill">
+                    <i class="bi bi-cpu-fill"></i> Concept 1: Smart Campus (Tech-Forward)
+                </a>
+                <a href="~/Default2.aspx" runat="server" class="concept-preview-pill">
+                    <i class="bi bi-bank2"></i> Concept 2: Heritage & Distinction
+                </a>
+                <a href="~/Default3.aspx" runat="server" class="concept-preview-pill">
+                    <i class="bi bi-stars"></i> Concept 3: Vibrant Student Life
+                </a>
+                <a href="~/Default.aspx" runat="server" class="concept-preview-pill active">
+                    <i class="bi bi-window"></i> Classic Standard
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- 1. Hero Carousel Section -->
     <section class="hero-slider-section">
         <div id="schoolHeroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
