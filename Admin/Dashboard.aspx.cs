@@ -16,7 +16,7 @@ namespace Chetancbsewebsite.Admin
                 }
 
                 LoadStatistics();
-                LoadRecentMessages();
+                LoadRecentTestimonials();
             }
         }
 
@@ -40,11 +40,11 @@ namespace Chetancbsewebsite.Admin
             }
         }
 
-        private void LoadRecentMessages()
+        private void LoadRecentTestimonials()
         {
             try
             {
-                DataTable dt = ContactService.GetAllMessages();
+                DataTable dt = TestimonialService.GetAllTestimonialsForAdmin();
                 if (dt != null)
                 {
                     // Take top 5 rows
@@ -55,13 +55,13 @@ namespace Chetancbsewebsite.Admin
                         {
                             top5.ImportRow(dt.Rows[i]);
                         }
-                        gvRecentMessages.DataSource = top5;
+                        gvRecentTestimonials.DataSource = top5;
                     }
                     else
                     {
-                        gvRecentMessages.DataSource = dt;
+                        gvRecentTestimonials.DataSource = dt;
                     }
-                    gvRecentMessages.DataBind();
+                    gvRecentTestimonials.DataBind();
                 }
             }
             catch (Exception)

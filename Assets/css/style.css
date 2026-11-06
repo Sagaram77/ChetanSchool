@@ -1,47 +1,52 @@
 /* ==========================================================================
    Chetan Public School, Hubballi - Main Stylesheet
    CBSE Affiliation No: 831020 | School Code: 45914
+   Design Language: Concept 3 (Vibrant, Child-Centric & Joyfully Modern)
    ========================================================================== */
 
 :root {
-    --primary-color: #0b2545;       /* Deep Royal Navy */
-    --primary-light: #134074;       /* Slate Navy */
-    --secondary-color: #f4a261;     /* Warm Amber */
-    --accent-gold: #d4a373;        /* Warm Gold */
-    --accent-red: #c1121f;         /* Notice Red */
-    --light-bg: #f8f9fa;           /* Off-white */
+    --primary-color: #0f172a;       /* Modern Slate Navy */
+    --primary-light: #1e293b;       /* Soft Slate */
+    --secondary-color: #ff6b6b;     /* Vibrant Coral (Concept 3) */
+    --accent-gold: #ffd166;        /* Sunshine Yellow */
+    --accent-mint: #06d6a0;        /* Fresh Mint */
+    --accent-teal: #00b4d8;        /* Lagoon Teal */
+    --accent-purple: #8338ec;      /* Creative Purple */
+    --accent-red: #ff6b6b;         /* Coral Red */
+    --light-bg: #f8fafc;           /* Clean Off-white */
     --surface-bg: #ffffff;         /* Pure white */
-    --text-dark: #1d2d44;          /* Slate Dark */
-    --text-muted: #6c757d;
+    --text-dark: #1e293b;          /* Dark Slate */
+    --text-muted: #64748b;
     --border-color: #e2e8f0;
-    --shadow-sm: 0 2px 4px rgba(11, 37, 69, 0.06);
-    --shadow-md: 0 6px 16px rgba(11, 37, 69, 0.08);
-    --shadow-lg: 0 12px 28px rgba(11, 37, 69, 0.12);
-    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --shadow-sm: 0 4px 10px rgba(15, 23, 42, 0.04);
+    --shadow-md: 0 10px 25px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 20px 40px rgba(15, 23, 42, 0.12);
+    --transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    color: var(--text-dark);
+    font-family: 'Urbanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #334155;
     background-color: var(--light-bg);
-    line-height: 1.6;
+    line-height: 1.68;
     overflow-x: hidden;
 }
 
 /* Typography Enhancements */
-h1, h2, h3, h4, h5, h6 {
-    color: var(--primary-color);
-    font-weight: 700;
-    letter-spacing: -0.01em;
+h1, h2, h3, h4, h5, h6, .school-title, .section-heading, .navbar-brand, .faculty-name, .c3-font-heading {
+    font-family: 'Fredoka', cursive, sans-serif;
+    color: #0f172a;
+    font-weight: 600;
+    letter-spacing: 0.01em;
 }
 
 /* 1. Top Information Bar */
 .top-bar {
-    background-color: var(--primary-color);
+    background-color: #0f172a;
     color: #e2e8f0;
     font-size: 0.85rem;
-    padding: 6px 0;
-    border-bottom: 2px solid var(--secondary-color);
+    padding: 7px 0;
+    border-bottom: 2px solid var(--accent-mint);
 }
 
 .top-bar a {
@@ -51,26 +56,89 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar a:hover {
-    color: var(--secondary-color);
+    color: var(--accent-gold);
 }
 
-/* 2. Main Header & Brand */
+/* 2. Main Header & Brand (Version 1: Default Header - Normal Flow at Top) */
 .header-brand-section {
     background-color: #ffffff;
-    padding: 16px 0;
+    padding: 14px 0;
     border-bottom: 1px solid var(--border-color);
+    position: relative;
+    z-index: 10;
+}
+
+/* Version 2: Compact Fixed Header (Shows on Scroll - matching chetansmartcampus.org) */
+.compact-fixed-header {
+    position: fixed;
+    top: -100px; /* Initially hidden above viewport */
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: linear-gradient(135deg, #0b2545 0%, #0f172a 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    border-bottom: 2px solid var(--accent-mint);
+    transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 6px 0;
+}
+
+.compact-fixed-header.header-visible {
+    top: 0;
+}
+
+.compact-logo-img {
+    border: 2px solid #00adef;
+    transition: transform 0.3s ease;
+}
+
+.compact-logo-img:hover {
+    transform: scale(1.08) rotate(3deg);
+}
+
+.compact-school-name {
+    font-family: 'Fredoka', var(--font-heading), sans-serif;
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* CBSE Tags inside Default School Header */
+.cbse-affil-tag {
+    background: #eff6ff;
+    color: #1e40af;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.cbse-code-tag {
+    background: #f8fafc;
+    color: #475569;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 3px 8px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .school-logo-img {
-    width: 78px;
-    height: 78px;
+    width: 75px !important;
+    height: 75px !important;
+    max-width: 75px !important;
+    max-height: 75px !important;
     object-fit: contain;
     border-radius: 50%;
     background-color: #ffffff;
     box-shadow: 0 4px 14px rgba(11, 37, 69, 0.15);
     border: 2px solid #00adef;
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    flex-shrink: 0;
+    flex-shrink: 0 !important;
+    display: block;
 }
 
 .school-logo-img:hover {
@@ -117,60 +185,104 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #eef2f6;
     border-left: 4px solid var(--secondary-color);
     padding: 6px 14px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 0.85rem;
     font-weight: 600;
     color: var(--primary-color);
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
 }
 
 /* 3. Main Navigation Bar */
 .main-navbar {
-    background-color: var(--primary-color);
+    background-color: #0f172a;
     padding: 0;
-    box-shadow: var(--shadow-md);
-    position: sticky;
-    top: 0;
-    z-index: 1030;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    position: relative;
+    top: auto;
+    z-index: 1020;
+    border-bottom: 2px solid var(--accent-mint);
 }
 
 .main-navbar .nav-link {
-    color: #ffffff !important;
-    font-weight: 600;
+    color: #e2e8f0 !important;
+    font-weight: 700;
     font-size: 0.92rem;
     padding: 14px 14px !important;
     text-transform: uppercase;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.04em;
     transition: var(--transition);
     position: relative;
+    border-radius: 8px;
 }
 
-.main-navbar .nav-link:hover,
+.main-navbar .nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--accent-gold) !important;
+}
+
+/* Active Nav Link: Modern Subtle Glow Pill & Warm Gold Indicator */
 .main-navbar .nav-link.active {
-    background-color: var(--primary-light);
-    color: var(--secondary-color) !important;
+    background: linear-gradient(135deg, rgba(255, 107, 107, 0.22), rgba(245, 158, 11, 0.22)) !important;
+    color: #ffd166 !important;
+    box-shadow: inset 0 -3px 0 0 #ff6b6b;
+    border-radius: 8px 8px 0 0;
 }
 
 .main-navbar .dropdown-menu {
-    border: none;
-    border-radius: 8px;
-    box-shadow: var(--shadow-lg);
-    padding: 8px 0;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    padding: 8px;
     border-top: 3px solid var(--secondary-color);
 }
 
 .main-navbar .dropdown-item {
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 8px 20px;
-    color: var(--text-dark);
-    transition: var(--transition);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 9px 16px;
+    color: #334155;
+    border-radius: 6px;
+    transition: all 0.2s ease;
 }
 
 .main-navbar .dropdown-item:hover {
-    background-color: #eef2f6;
-    color: var(--primary-color);
-    padding-left: 24px;
+    background-color: #f8fafc;
+    color: var(--secondary-color);
+    padding-left: 20px;
+}
+
+/* Active Dropdown Item: Elegant Warm Amber Theme (Fixes Dark Blue #0d6efd) */
+.main-navbar .dropdown-item.active,
+.dropdown-item.active {
+    background: linear-gradient(90deg, #fff3e0 0%, #ffffff 100%) !important;
+    color: #b45309 !important;
+    font-weight: 700 !important;
+    border-left: 4px solid #f59e0b !important;
+    border-radius: 6px !important;
+    padding-left: 18px !important;
+    box-shadow: 0 2px 6px rgba(245, 158, 11, 0.12) !important;
+}
+
+.main-navbar .dropdown-item.active i,
+.dropdown-item.active i {
+    color: #f59e0b !important;
+}
+
+/* Sidebar "In This Section" Active State (Fixes Dark Blue #0d6efd in inner pages) */
+.list-group-item.active {
+    background: linear-gradient(135deg, #0b2545 0%, #173863 100%) !important;
+    border-color: #0b2545 !important;
+    color: #ffffff !important;
+    border-left: 5px solid #ff6b6b !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(11, 37, 69, 0.15) !important;
+    border-radius: 8px !important;
+}
+
+.list-group-item.active i {
+    color: #ffd166 !important;
 }
 
 /* 4. Live News & Announcement Ticker (Right to Left Scrolling) */
@@ -237,6 +349,11 @@ h1, h2, h3, h4, h5, h6 {
 .ticker-item a:hover {
     color: var(--accent-red);
     text-decoration: underline;
+}
+
+.news-ticker-container .btn {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
 }
 
 /* 5. Hero Carousel & Slides */
@@ -338,19 +455,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-tag {
+    font-family: 'Fredoka', cursive, sans-serif;
     color: var(--secondary-color);
-    font-weight: 700;
-    font-size: 0.85rem;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.25);
+    font-weight: 600;
+    font-size: 0.82rem;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    display: inline-block;
-    margin-bottom: 6px;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 18px;
+    border-radius: 50px;
+    margin-bottom: 12px;
 }
 
 .section-heading {
-    font-size: 2.2rem;
-    font-weight: 800;
-    color: var(--primary-color);
+    font-family: 'Fredoka', cursive, sans-serif;
+    font-size: 2.3rem;
+    font-weight: 700;
+    color: #0f172a;
     position: relative;
     padding-bottom: 14px;
 }
@@ -362,25 +487,27 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     transform: translateX(-50%);
     width: 60px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    border-radius: 2px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-gold));
+    border-radius: 4px;
 }
 
 /* 8. Feature Cards */
 .feature-card {
     background-color: #ffffff;
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    padding: 28px 24px;
+    border-radius: 20px;
+    padding: 32px 26px;
     transition: var(--transition);
     height: 100%;
     box-shadow: var(--shadow-sm);
 }
 
 .feature-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.09);
+    border-color: var(--accent-mint);
+}
     border-color: var(--secondary-color);
 }
 
@@ -718,4 +845,146 @@ h1, h2, h3, h4, h5, h6 {
     border-color: #f59e0b;
     font-weight: 700;
     box-shadow: 0 4px 14px rgba(245, 158, 11, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   Concept 3 Site-Wide Harmonization: Inner Page Banners, Cards & Components
+   -------------------------------------------------------------------------- */
+.bg-primary.py-4 {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #0d9488 100%) !important;
+    position: relative;
+    overflow: hidden;
+    padding-top: 2.6rem !important;
+    padding-bottom: 2.6rem !important;
+    border-bottom: 3px solid #06d6a0;
+}
+
+.bg-primary.py-4::before {
+    content: '';
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(255, 209, 102, 0.18) 0%, transparent 70%);
+    top: -80px;
+    right: 4%;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.bg-primary.py-4::after {
+    content: '';
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 107, 107, 0.14) 0%, transparent 70%);
+    bottom: -60px;
+    left: 8%;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.bg-primary.py-4 h1 {
+    color: #ffffff !important;
+    font-family: 'Fredoka', cursive, sans-serif !important;
+    font-size: 2.4rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px !important;
+}
+
+.bg-primary.py-4 .breadcrumb {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.3px;
+}
+
+.bg-primary.py-4 .breadcrumb-item.active {
+    color: #ffd166 !important;
+    font-weight: 700;
+}
+
+/* Rounded Pill Global Buttons with Bouncy Hover */
+.btn {
+    border-radius: 50px;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 700;
+    transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border: none;
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.25);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.35);
+}
+
+.btn-warning {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: 0 6px 18px rgba(255, 107, 107, 0.35);
+}
+
+.btn-warning:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+    color: #ffffff !important;
+}
+
+.btn-outline-primary {
+    border-color: #0f172a;
+    color: #0f172a;
+}
+
+.btn-outline-primary:hover {
+    background-color: #0f172a;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Global Elevated Rounded Cards */
+.card {
+    border-radius: 20px !important;
+    border: 1px solid rgba(15, 23, 42, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 16px 36px rgba(15, 23, 42, 0.09) !important;
+}
+
+/* Badges with Soft Pill Aesthetic */
+.badge {
+    border-radius: 50px;
+    font-weight: 600;
+    padding: 6px 12px;
+}
+
+/* Responsive adjustments for Sticky Header */
+@media (max-width: 991.98px) {
+    .header-brand-section {
+        padding: 8px 0;
+    }
+    .school-logo-img {
+        width: 52px !important;
+        height: 52px !important;
+        max-width: 52px !important;
+        max-height: 52px !important;
+    }
+    .school-title {
+        font-size: 1.15rem;
+    }
+    .school-trust {
+        font-size: 0.72rem;
+    }
+    .school-subtitle {
+        font-size: 0.75rem;
+    }
 }

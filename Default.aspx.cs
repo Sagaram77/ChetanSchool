@@ -12,15 +12,65 @@ namespace Chetancbsewebsite
             {
                 LoadFeaturedNews();
                 LoadAdmissionLinks();
+                LoadParentTestimonials();
                 LoadNoticeModal();
             }
+        }
+
+        private void LoadParentTestimonials()
+        {
+            try
+            {
+                DataTable dt = TestimonialService.GetActiveTestimonials();
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    rptParentTestimonials.DataSource = dt;
+                    rptParentTestimonials.DataBind();
+                }
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+        public string GetStarHtml(int rating)
+        {
+            if (rating < 1) rating = 1;
+            if (rating > 5) rating = 5;
+
+            string html = "";
+            for (int i = 1; i <= 5; i++)
+            {
+                if (i <= rating)
+                {
+                    html += "<i class=\"bi bi-star-fill text-warning me-1\"></i>";
+                }
+                else
+                {
+                    html += "<i class=\"bi bi-star text-muted opacity-50 me-1\"></i>";
+                }
+            }
+            return html;
+        }
+
+        public string GetAvatarColor(int index)
+        {
+            string[] colors = new string[] {
+                "#0b2545", // Deep Navy
+                "#f59e0b", // Amber/Gold
+                "#ff6b6b", // Coral
+                "#10b981", // Emerald
+                "#8b5cf6", // Purple
+                "#0ea5e9"  // Sky
+            };
+            return colors[index % colors.Length];
         }
 
         private void LoadFeaturedNews()
         {
             try
             {
-                DataTable dt = NewsService.GetFeaturedNews(3);
+                DataTable dt = NewsService.GetFeaturedNews(4);
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     rptFeaturedNews.DataSource = dt;

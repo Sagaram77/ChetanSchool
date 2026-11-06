@@ -72,8 +72,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="~/Admin/ManageContact.aspx" runat="server" class="nav-link">
-                            <i class="bi bi-envelope me-2"></i> Contact Messages
+                        <a href="~/Admin/ManageTestimonials.aspx" runat="server" class="nav-link">
+                            <i class="bi bi-chat-heart me-2 text-danger"></i> Parent Testimonials
                         </a>
                     </li>
                     <li class="mt-3">

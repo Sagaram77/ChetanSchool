@@ -94,52 +94,52 @@
 
     <!-- Quick Shortcuts & Recent Inquiries -->
     <div class="row g-4">
-        <!-- Recent Messages / Contact Inquiries Table -->
+        <!-- Parent Testimonials Table -->
         <div class="col-lg-8">
             <div class="card border-0 shadow-sm rounded-4">
                 <div class="card-header bg-white py-3 border-bottom d-flex justify-content-between align-items-center">
-                    <h6 class="m-0 fw-bold text-primary"><i class="bi bi-chat-left-text-fill text-warning me-2"></i> Recent Contact Inquiries & Feedback</h6>
-                    <a href="~/Admin/ManageContact.aspx" runat="server" class="btn btn-sm btn-outline-primary">View All Messages</a>
+                    <h6 class="m-0 fw-bold text-primary"><i class="bi bi-chat-heart-fill text-danger me-2"></i> Parent Feedback & Testimonials</h6>
+                    <a href="~/Admin/ManageTestimonials.aspx" runat="server" class="btn btn-sm btn-outline-primary">Manage Testimonials</a>
                 </div>
                 <div class="card-body p-0">
                     <div class="table-responsive">
-                        <asp:GridView ID="gvRecentMessages" runat="server" AutoGenerateColumns="false" CssClass="table table-hover align-middle mb-0" GridLines="None">
+                        <asp:GridView ID="gvRecentTestimonials" runat="server" AutoGenerateColumns="false" CssClass="table table-hover align-middle mb-0" GridLines="None">
                             <Columns>
-                                <asp:TemplateField HeaderText="Sender" HeaderStyle-CssClass="px-3" ItemStyle-CssClass="px-3">
+                                <asp:TemplateField HeaderText="Parent" HeaderStyle-CssClass="px-3" ItemStyle-CssClass="px-3">
                                     <ItemTemplate>
-                                        <div class="fw-bold text-dark"><%# Eval("SenderName") %></div>
-                                        <div class="small text-muted"><%# Eval("Email") %></div>
+                                        <div class="fw-bold text-dark"><%# Eval("ParentName") %></div>
+                                        <div class="small text-muted"><%# Eval("ChildClass") %></div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
-                                <asp:BoundField DataField="Phone" HeaderText="Contact" HeaderStyle-CssClass="px-3" ItemStyle-CssClass="px-3" />
-                                
-                                <asp:TemplateField HeaderText="Subject" HeaderStyle-CssClass="px-3" ItemStyle-CssClass="px-3">
+                                <asp:TemplateField HeaderText="Rating" HeaderStyle-CssClass="px-3 text-center" ItemStyle-CssClass="px-3 text-center">
                                     <ItemTemplate>
-                                        <div class="text-truncate" style="max-width: 200px;" title='<%# Eval("Subject") %>'>
-                                            <%# Eval("Subject") %>
+                                        <span class="text-warning small">
+                                            <i class="bi bi-star-fill"></i> <%# Eval("Rating") %>/5
+                                        </span>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                                <asp:TemplateField HeaderText="Feedback Quote" HeaderStyle-CssClass="px-3" ItemStyle-CssClass="px-3">
+                                    <ItemTemplate>
+                                        <div class="text-truncate small text-secondary" style="max-width: 280px;" title='<%# Eval("TestimonialText") %>'>
+                                            "<%# Eval("TestimonialText") %>"
                                         </div>
                                     </ItemTemplate>
                                 </asp:TemplateField>
 
                                 <asp:TemplateField HeaderText="Status" HeaderStyle-CssClass="px-3" ItemStyle-CssClass="px-3 text-center">
                                     <ItemTemplate>
-                                        <span class='<%# Convert.ToBoolean(Eval("IsRead")) ? "badge bg-light text-secondary border" : "badge bg-danger" %>'>
-                                            <%# Convert.ToBoolean(Eval("IsRead")) ? "Resolved" : "Unread" %>
+                                        <span class='<%# Convert.ToBoolean(Eval("IsActive")) ? "badge bg-success" : "badge bg-secondary" %>'>
+                                            <%# Convert.ToBoolean(Eval("IsActive")) ? "Active" : "Hidden" %>
                                         </span>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-
-                                <asp:TemplateField HeaderText="Date" HeaderStyle-CssClass="px-3" ItemStyle-CssClass="px-3 text-muted small">
-                                    <ItemTemplate>
-                                        <%# Convert.ToDateTime(Eval("SubmittedDate")).ToString("dd MMM yyyy") %>
                                     </ItemTemplate>
                                 </asp:TemplateField>
                             </Columns>
                             <EmptyDataTemplate>
                                 <div class="text-center p-4 text-muted">
-                                    <i class="bi bi-chat-square-dots fs-2 d-block mb-2"></i>
-                                    No contact inquiries received yet.
+                                    <i class="bi bi-chat-heart fs-2 d-block mb-2 text-secondary opacity-50"></i>
+                                    No testimonials added yet.
                                 </div>
                             </EmptyDataTemplate>
                         </asp:GridView>

@@ -33,6 +33,15 @@ namespace Chetancbsewebsite.MasterPages
         protected global::System.Web.UI.HtmlControls.HtmlForm mainForm;
 
         /// <summary>
+        /// lnkCompactAdmission control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkCompactAdmission;
+
+        /// <summary>
         /// lnkHeaderAdmission control.
         /// </summary>
         /// <remarks>

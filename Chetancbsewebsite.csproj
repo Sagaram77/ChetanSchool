@@ -89,6 +89,7 @@
     <Content Include="Admin\ManageGallery.aspx" />
     <Content Include="Admin\ManageStaff.aspx" />
     <Content Include="Admin\ManageDisclosures.aspx" />
+    <Content Include="Admin\ManageTestimonials.aspx" />
     <Content Include="Admin\ManageContact.aspx" />
     <Content Include="Admin\ChangePassword.aspx" />
     <Content Include="About\AboutUs.aspx" />
@@ -133,6 +134,7 @@
     <Compile Include="BLL\GalleryService.cs" />
     <Compile Include="BLL\StaffService.cs" />
     <Compile Include="BLL\DisclosureService.cs" />
+    <Compile Include="BLL\TestimonialService.cs" />
     <Compile Include="BLL\ContactService.cs" />
     <Compile Include="BLL\FacilityService.cs" />
     <Compile Include="MasterPages\Site.Master.cs">
@@ -232,6 +234,13 @@
     </Compile>
     <Compile Include="Admin\ManageDisclosures.aspx.designer.cs">
       <DependentUpon>ManageDisclosures.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ManageTestimonials.aspx.cs">
+      <DependentUpon>ManageTestimonials.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ManageTestimonials.aspx.designer.cs">
+      <DependentUpon>ManageTestimonials.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ManageContact.aspx.cs">
       <DependentUpon>ManageContact.aspx</DependentUpon>

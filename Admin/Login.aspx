@@ -9,14 +9,14 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link href="~/Assets/css/style.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="Assets/images/logo.png" />
+    <link href='<%= ResolveUrl("~/Assets/css/style.css") %>' rel="stylesheet" />
+    <link rel="icon" type="image/png" href='<%= ResolveUrl("~/Assets/images/logo.png") %>' />
 </head>
 <body class="bg-light d-flex align-items-center justify-content-center" style="min-height: 100vh;">
     <form id="loginForm" runat="server" class="w-100" style="max-width: 440px;">
         <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
             <div class="card-header bg-primary text-white text-center p-4">
-                <img src="Assets/images/logo.png" alt="Chetan Public School Emblem" class="rounded-circle mx-auto mb-3 bg-white p-2 shadow-sm d-block" style="width: 80px; height: 80px; object-fit: contain;" />
+                <img src='<%= ResolveUrl("~/Assets/images/logo.png") %>' alt="Chetan Public School Emblem" width="80" height="80" class="rounded-circle mx-auto mb-3 bg-white p-2 shadow-sm d-block" style="width: 80px; height: 80px; object-fit: contain;" />
                 <h4 class="fw-bold mb-1">Chetan Public School</h4>
                 <p class="small text-white-50 m-0">Administrative Control Portal</p>
             </div>

@@ -3,6 +3,7 @@ namespace Chetancbsewebsite
     public partial class Default
     {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkHeroAdmission;
+        protected global::System.Web.UI.WebControls.Repeater rptParentTestimonials;
         protected global::System.Web.UI.WebControls.Repeater rptFeaturedNews;
         protected global::System.Web.UI.HtmlControls.HtmlAnchor lnkBottomAdmission;
         protected global::System.Web.UI.WebControls.Panel pnlNoticeModal;

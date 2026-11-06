@@ -38,6 +38,7 @@ namespace Chetancbsewebsite.MasterPages
             {
                 string admissionLink = SiteSettingsService.GetAdmissionFormLink();
                 if (lnkHeaderAdmission != null) lnkHeaderAdmission.HRef = admissionLink;
+                if (lnkCompactAdmission != null) lnkCompactAdmission.HRef = admissionLink;
                 if (lnkNavAdmission != null) lnkNavAdmission.HRef = admissionLink;
                 if (lnkFooterAdmission != null) lnkFooterAdmission.HRef = admissionLink;
             }
