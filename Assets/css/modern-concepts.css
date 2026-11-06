@@ -59,8 +59,16 @@
     padding: 10px 16px;
     position: sticky;
     top: 0;
-    z-index: 1050;
+    z-index: 1020; /* Lower than modal backdrop (1050) to prevent overlapping */
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Ensure modal popup always appears in front of sticky concept switchers & headers */
+.modal-backdrop {
+    z-index: 10500 !important;
+}
+.modal {
+    z-index: 10550 !important;
 }
 
 .concept-preview-pill {

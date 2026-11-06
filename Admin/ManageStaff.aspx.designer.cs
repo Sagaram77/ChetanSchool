@@ -129,6 +129,24 @@ namespace Chetancbsewebsite.Admin
         protected global::System.Web.UI.WebControls.TextBox txtExperience;
 
         /// <summary>
+        /// imgPhotoPreview control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgPhotoPreview;
+
+        /// <summary>
+        /// divPlaceholderIcon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPlaceholderIcon;
+
+        /// <summary>
         /// fuPhoto control.
         /// </summary>
         /// <remarks>

@@ -18,7 +18,6 @@
             background: linear-gradient(rgba(11, 37, 69, 0.85), rgba(11, 37, 69, 0.7)), url('https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
         }
     </style>
-    <link href="~/Assets/css/modern-concepts.css" rel="stylesheet" />
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -421,7 +420,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg">
                 <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
                     <div class="modal-header bg-primary text-white border-0 py-3">
-                        <h5 class="modal-title fw-bold" id="schoolNoticeModalLabel">
+                        <h5 class="modal-title fw-bold text-white" id="schoolNoticeModalLabel">
                             <i class="bi bi-megaphone-fill text-warning me-2"></i>
                             <asp:Literal ID="litModalTitle" runat="server" />
                         </h5>
@@ -442,7 +441,6 @@
                                         <i class="bi bi-arrow-up-right-circle me-1"></i>
                                         <asp:Literal ID="litModalActionText" runat="server" Text="Learn More" />
                                     </asp:HyperLink>
-                                    <button type="button" class="btn btn-outline-secondary px-3 ms-2" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>

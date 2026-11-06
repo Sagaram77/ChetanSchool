@@ -59,6 +59,9 @@ namespace Chetancbsewebsite.Admin
             chkIsActive.Checked = true;
             hfExistingPhoto.Value = string.Empty;
             ddlDepartment.SelectedIndex = 0;
+
+            imgPhotoPreview.Style["display"] = "none";
+            divPlaceholderIcon.Style["display"] = "flex";
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -87,8 +90,14 @@ namespace Chetancbsewebsite.Admin
                     string ext = Path.GetExtension(fuPhoto.FileName).ToLower();
                     if (ext == ".jpg" || ext == ".jpeg" || ext == ".png" || ext == ".webp")
                     {
-                        string fileName = "staff_" + DateTime.Now.ToString("yyyyMMddHHmmss") + ext;
-                        string savePath = Server.MapPath("~/Uploads/Staff/" + fileName);
+                        string folderPath = Server.MapPath("~/Uploads/Staff/");
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+
+                        string fileName = "staff_" + DateTime.Now.ToString("yyyyMMddHHmmss") + "_" + Guid.NewGuid().ToString().Substring(0, 4) + ext;
+                        string savePath = Path.Combine(folderPath, fileName);
                         fuPhoto.SaveAs(savePath);
                         photoUrl = "~/Uploads/Staff/" + fileName;
                     }
@@ -141,7 +150,19 @@ namespace Chetancbsewebsite.Admin
                         ddlDepartment.SelectedValue = dept;
                     }
 
-                    hfExistingPhoto.Value = dr["PhotoUrl"] != DBNull.Value ? dr["PhotoUrl"].ToString() : "";
+                    string photo = dr["PhotoUrl"] != DBNull.Value ? dr["PhotoUrl"].ToString() : "";
+                    hfExistingPhoto.Value = photo;
+                    if (!string.IsNullOrEmpty(photo))
+                    {
+                        imgPhotoPreview.ImageUrl = ResolveUrl(photo);
+                        imgPhotoPreview.Style["display"] = "block";
+                        divPlaceholderIcon.Style["display"] = "none";
+                    }
+                    else
+                    {
+                        imgPhotoPreview.Style["display"] = "none";
+                        divPlaceholderIcon.Style["display"] = "flex";
+                    }
                 }
             }
             else if (e.CommandName == "DeleteStaff")

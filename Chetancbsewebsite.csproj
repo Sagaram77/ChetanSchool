@@ -70,6 +70,8 @@
     <Content Include="Web.config" />
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\css\modern-concepts.css" />
+    <Content Include="Assets\images\logo.png" />
+    <Content Include="Assets\images\logo.jpg" />
     <Content Include="Assets\js\main.js" />
     <Content Include="Database\ChetanSchool_Schema_Seed.sql" />
     <Content Include="Database\Update_Database_Schema.sql" />
@@ -92,6 +94,7 @@
     <Content Include="About\AboutUs.aspx" />
     <Content Include="About\VisionMission.aspx" />
     <Content Include="About\PrincipalsDesk.aspx" />
+    <Content Include="About\VicePrincipalsDesk.aspx" />
     <Content Include="About\Management.aspx" />
     <Content Include="About\ManagingCommittee.aspx" />
     <Content Include="Academics\Curriculum.aspx" />
@@ -264,6 +267,13 @@
     </Compile>
     <Compile Include="About\PrincipalsDesk.aspx.designer.cs">
       <DependentUpon>PrincipalsDesk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="About\VicePrincipalsDesk.aspx.cs">
+      <DependentUpon>VicePrincipalsDesk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="About\VicePrincipalsDesk.aspx.designer.cs">
+      <DependentUpon>VicePrincipalsDesk.aspx</DependentUpon>
     </Compile>
     <Compile Include="About\Management.aspx.cs">
       <DependentUpon>Management.aspx</DependentUpon>

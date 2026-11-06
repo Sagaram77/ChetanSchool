@@ -32,6 +32,20 @@ namespace Chetancbsewebsite.BLL
             return DbHelper.ExecuteDataTable(query);
         }
 
+        public static DataRow GetPrincipal()
+        {
+            string query = "SELECT TOP 1 * FROM StaffDirectory WHERE Designation LIKE '%Principal%' AND Designation NOT LIKE '%Vice%' AND IsActive = 1 ORDER BY DisplayOrder ASC, StaffId ASC";
+            DataTable dt = DbHelper.ExecuteDataTable(query);
+            return (dt != null && dt.Rows.Count > 0) ? dt.Rows[0] : null;
+        }
+
+        public static DataRow GetVicePrincipal()
+        {
+            string query = "SELECT TOP 1 * FROM StaffDirectory WHERE Designation LIKE '%Vice Principal%' AND IsActive = 1 ORDER BY DisplayOrder ASC, StaffId ASC";
+            DataTable dt = DbHelper.ExecuteDataTable(query);
+            return (dt != null && dt.Rows.Count > 0) ? dt.Rows[0] : null;
+        }
+
         public static int AddStaff(string fullName, string designation, string department, string qualifications, int? experienceYears, string photoUrl, int displayOrder)
         {
             string query = @"

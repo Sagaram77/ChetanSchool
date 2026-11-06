@@ -1,370 +1,556 @@
 <%@ Page Title="Heritage & Academic Distinction | Chetan Public School" Language="C#" MasterPageFile="~/MasterPages/Site.Master" AutoEventWireup="true" CodeBehind="Default2.aspx.cs" Inherits="Chetancbsewebsite.Default2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
-    <link href="~/Assets/css/modern-concepts.css" rel="stylesheet" />
+    <!-- Google Fonts: Playfair Display (Regal Serif) & Outfit (Modern Clean Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet" />
+    
+    <!-- AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <style>
-        /* Concept 2: Heritage & Academic Distinction Specifics */
-        .heritage-hero-section {
-            background: linear-gradient(rgba(11, 37, 69, 0.88), rgba(8, 26, 49, 0.92)), 
+        /* ==========================================================================
+           CONCEPT 2: THE ROYAL HERITAGE & IVY-LEAGUE ACADEMIC SANCTUM
+           Oxford / Ivy-League Prestige, Deep Navy Blue, Warm Regal Gold & Clean Alabaster
+           ========================================================================== */
+        
+        :root {
+            --c2-navy: #081735;
+            --c2-navy-deep: #050f24;
+            --c2-gold: #d4af37;
+            --c2-gold-light: #f3e5ab;
+            --c2-gold-dark: #997926;
+            --c2-cream: #fcfbf7;
+            --c2-text: #1e293b;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--c2-cream);
+            color: var(--c2-text);
+            overflow-x: hidden;
+        }
+
+        .c2-font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* ---------------- Concept Switcher Toolbar ---------------- */
+        .c2-switcher-bar {
+            background: #081735;
+            border-bottom: 2px solid var(--c2-gold);
+            padding: 10px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 1020;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .c2-switcher-btn {
+            padding: 6px 14px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            color: #e2e8f0;
+        }
+
+        .c2-switcher-btn:hover {
+            color: #ffffff;
+            border-color: var(--c2-gold);
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .c2-switcher-btn.active {
+            background: linear-gradient(135deg, #d4af37 0%, #aa8012 100%);
+            color: #081735;
+            font-weight: 700;
+            border-color: var(--c2-gold);
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* ---------------- Regal Parallax Hero ---------------- */
+        .c2-hero {
+            background: linear-gradient(rgba(8, 23, 53, 0.88), rgba(5, 15, 36, 0.94)),
                         url('https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=1920&q=85') center/cover no-repeat;
             color: #ffffff;
-            padding: 90px 0 140px;
+            padding: 100px 0 160px;
             position: relative;
             text-align: center;
         }
 
-        .hero-crest-badge {
-            width: 80px;
-            height: 80px;
-            background: rgba(245, 158, 11, 0.15);
-            border: 2px solid #f59e0b;
+        .c2-crest-badge {
+            width: 85px;
+            height: 85px;
+            border: 2px solid var(--c2-gold);
             border-radius: 50%;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             font-size: 2.2rem;
-            color: #f59e0b;
-            margin-bottom: 20px;
-            box-shadow: 0 0 25px rgba(245, 158, 11, 0.35);
+            color: var(--c2-gold);
+            background: rgba(212, 175, 55, 0.1);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            margin-bottom: 24px;
         }
 
-        .heritage-heading {
-            font-family: Georgia, 'Times New Roman', serif;
+        .c2-ribbon-tag {
+            display: inline-block;
+            font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
-            line-height: 1.25;
+            letter-spacing: 2px;
+            color: var(--c2-gold-light);
+            text-transform: uppercase;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 4px 18px;
+            margin-bottom: 20px;
         }
 
-        .heritage-shelf-wrapper {
-            margin-top: -70px;
+        .c2-hero-title {
+            font-size: 3.6rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #ffffff;
+            margin-bottom: 24px;
+        }
+
+        @media (max-width: 991px) {
+            .c2-hero-title { font-size: 2.4rem; }
+        }
+
+        .c2-btn-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #aa8012 100%);
+            color: #081735 !important;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 4px;
+            border: 1px solid #d4af37;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .c2-btn-gold:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+            background: #f3e5ab;
+        }
+
+        .c2-btn-outline {
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #ffffff !important;
+            font-weight: 600;
+            padding: 16px 32px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .c2-btn-outline:hover {
+            border-color: var(--c2-gold);
+            color: var(--c2-gold) !important;
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* ---------------- Overlapping Stately Shelf ---------------- */
+        .c2-shelf-wrap {
+            margin-top: -90px;
             position: relative;
             z-index: 10;
         }
 
-        .heritage-shelf-card {
+        .c2-shelf-card {
             background: #ffffff;
-            border-radius: 18px;
-            padding: 32px 24px;
-            box-shadow: 0 20px 45px rgba(11, 37, 69, 0.12);
-            border-top: 5px solid #0b2545;
+            border-radius: 8px;
+            padding: 36px 28px;
+            box-shadow: 0 15px 40px rgba(8, 23, 53, 0.08);
+            border: 1px solid #e2e8f0;
+            border-top: 4px solid var(--c2-navy);
             transition: all 0.35s ease;
             height: 100%;
         }
 
-        .heritage-shelf-card:hover {
+        .c2-shelf-card:hover {
             transform: translateY(-8px);
-            border-top-color: #f59e0b;
-            box-shadow: 0 28px 55px rgba(11, 37, 69, 0.18);
+            border-top-color: var(--c2-gold);
+            box-shadow: 0 25px 50px rgba(8, 23, 53, 0.15);
         }
 
-        .house-shield-card {
-            border-radius: 16px;
+        .c2-shelf-icon {
+            font-size: 2.2rem;
+            color: var(--c2-gold);
+            margin-bottom: 16px;
+        }
+
+        /* ---------------- Executive Leadership Voice ---------------- */
+        .c2-leader-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 48px;
+            box-shadow: 0 15px 45px rgba(8, 23, 53, 0.06);
+            border: 1px solid #e2e8f0;
+            position: relative;
+        }
+
+        .c2-quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            line-height: 0;
+            color: rgba(212, 175, 55, 0.2);
+            position: absolute;
+            top: 40px;
+            left: 30px;
+        }
+
+        /* ---------------- The 4 Grand Houses (Heraldic Showcase) ---------------- */
+        .c2-house-card {
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            background: #ffffff;
+            transition: all 0.35s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            height: 100%;
+        }
+
+        .c2-house-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .c2-house-banner {
             padding: 24px;
             color: #ffffff;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .house-shield-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        .c2-banner-ganga { background: linear-gradient(135deg, #1e3a8a, #0b2545); }
+        .c2-banner-yamuna { background: linear-gradient(135deg, #b45309, #78350f); }
+        .c2-banner-kaveri { background: linear-gradient(135deg, #065f46, #022c22); }
+        .c2-banner-godavari { background: linear-gradient(135deg, #991b1b, #450a0a); }
+
+        .c2-house-body {
+            padding: 24px;
         }
 
-        .house-ganga { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
-        .house-yamuna { background: linear-gradient(135deg, #b45309, #f59e0b); }
-        .house-kaveri { background: linear-gradient(135deg, #047857, #10b981); }
-        .house-godavari { background: linear-gradient(135deg, #991b1b, #ef4444); }
+        /* ---------------- Formal Gazette (Notices) ---------------- */
+        .c2-gazette-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-left: 4px solid var(--c2-gold);
+            border-radius: 4px;
+            padding: 20px 24px;
+            margin-bottom: 14px;
+            transition: all 0.3s ease;
+        }
 
-        .quote-executive-card {
-            background: #fdfbf7;
-            border-left: 6px solid #f59e0b;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        .c2-gazette-item:hover {
+            transform: translateX(6px);
+            box-shadow: 0 10px 25px rgba(8, 23, 53, 0.08);
+            border-left-color: var(--c2-navy);
         }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- A. Principal's Presentation Switcher Toolbar -->
-    <div class="concept-preview-bar">
+    <!-- Concept Switcher Bar (Sticky Top) -->
+    <div class="c2-switcher-bar">
         <div class="container d-flex flex-wrap justify-content-between align-items-center gap-2">
-            <div class="d-flex align-items-center gap-2 text-white">
-                <i class="bi bi-palette-fill text-warning fs-5"></i>
-                <span class="small fw-bold text-uppercase tracking-wider">Design Concept Review:</span>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-warning text-dark text-uppercase px-2 py-1" style="font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;">Prestigious Style</span>
+                <span class="small fw-semibold text-white">Concept 2: Heritage, Academic Rigor & Character</span>
             </div>
             <div class="d-flex flex-wrap gap-2">
-                <a href="~/Default1.aspx" runat="server" class="concept-preview-pill">
-                    <i class="bi bi-cpu-fill"></i> Concept 1: Smart Campus (Tech-Forward)
+                <a href="~/Default1.aspx" runat="server" class="c2-switcher-btn">
+                    <i class="bi bi-cpu text-info"></i> Concept 1: Smart Campus
                 </a>
-                <a href="~/Default2.aspx" runat="server" class="concept-preview-pill active">
-                    <i class="bi bi-bank2"></i> Concept 2: Heritage & Distinction
+                <a href="~/Default2.aspx" runat="server" class="c2-switcher-btn active">
+                    <i class="bi bi-award-fill text-warning"></i> Concept 2: Royal Heritage
                 </a>
-                <a href="~/Default3.aspx" runat="server" class="concept-preview-pill">
-                    <i class="bi bi-stars"></i> Concept 3: Vibrant Student Life
+                <a href="~/Default3.aspx" runat="server" class="c2-switcher-btn">
+                    <i class="bi bi-balloon text-danger"></i> Concept 3: Vibrant & Child-Centric
                 </a>
-                <a href="~/Default.aspx" runat="server" class="concept-preview-pill">
-                    <i class="bi bi-window"></i> Classic Standard
+                <a href="~/Default.aspx" runat="server" class="c2-switcher-btn">
+                    <i class="bi bi-layout-text-sidebar"></i> Classic Standard
                 </a>
             </div>
         </div>
     </div>
 
-    <!-- B. Hero Section: Academic Heritage & Grandeur -->
-    <section class="heritage-hero-section">
+    <!-- 1. HERO SECTION: Royal Heritage & Academic Distinction -->
+    <section class="c2-hero">
         <div class="container">
-            <div class="hero-crest-badge animate-float-slow">
-                <i class="bi bi-mortarboard-fill"></i>
+            <div class="c2-crest-badge" data-aos="zoom-in" style="background: #ffffff; padding: 4px; box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);">
+                <img src="Assets/images/logo.png" alt="Chetan Public School Crest" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;" />
             </div>
             <div>
-                <span class="badge-smart badge-gold-glow mb-3">
-                    <i class="bi bi-award-fill"></i> FOUNDED UNDER DVEA TRUST • CBSE AFFILIATION NO. 831020
+                <span class="c2-ribbon-tag">
+                    DYAVAPPANAVAR - VALASANG TRUST | CBSE AFFILIATION NO. 831020
                 </span>
             </div>
-            <h1 class="display-3 heritage-heading max-w-900 mx-auto mb-3">
-                Moulding Minds to Excel — Where Academic Rigor Meets Timeless Values
+            <h1 class="c2-hero-title c2-font-serif max-w-900 mx-auto" data-aos="fade-up">
+                Moulding Minds to Excel with Discipline, Intellect & Cultural Grace
             </h1>
-            <p class="lead text-white-50 max-w-700 mx-auto mb-4 fs-5" style="line-height: 1.8;">
-                Welcome to Chetan Public School, Akshay Nagar, Hubballi. For over 15 years, our faculty has fostered academic distinction, strong ethical foundations, and comprehensive CBSE leadership.
+            <p class="lead text-light opacity-90 max-w-700 mx-auto mb-4" style="line-height: 1.8;" data-aos="fade-up" data-aos-delay="100">
+                Welcome to Chetan Public School, Akshay Nagar, Hubballi. For over 15 years, our mentors have upheld the highest standards of scholastic integrity, 100% board distinction, and grounded ethical leadership.
             </p>
 
-            <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
-                <a id="lnkHeroAdmission" runat="server" target="_blank" class="btn btn-warning btn-lg fw-bold text-dark px-4 py-3 btn-shimmer shadow-lg">
-                    <i class="bi bi-pencil-square me-2"></i> Apply for Admission 2026-27 (ERP)
+            <div class="d-flex flex-wrap justify-content-center gap-3 mb-5" data-aos="fade-up" data-aos-delay="200">
+                <a id="lnkHeroAdmission" runat="server" target="_blank" class="c2-btn-gold">
+                    <i class="bi bi-pencil-square"></i>
+                    <span>Apply for Admission 2026-27 (ERP)</span>
                 </a>
-                <a href="~/About/AboutUs.aspx" runat="server" class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold">
-                    <i class="bi bi-bank me-2"></i> Our Educational Legacy
+                <a href="~/About/AboutUs.aspx" runat="server" class="c2-btn-outline">
+                    <i class="bi bi-bank"></i>
+                    <span>Our Educational Heritage</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- C. Overlapping Heritage Shelf: 3 Pillars of Distinction -->
-    <div class="container heritage-shelf-wrapper">
+    <!-- 2. OVERLAPPING 3-MANOR SHELF -->
+    <div class="container c2-shelf-wrap">
         <div class="row g-4">
-            <div class="col-md-4">
-                <div class="heritage-shelf-card">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div class="feature-icon-circle bg-primary bg-opacity-10 text-primary">
-                            <i class="bi bi-shield-check"></i>
-                        </div>
-                        <div>
-                            <h5 class="fw-bold text-primary mb-0">15+ Years Legacy</h5>
-                            <small class="text-muted">DVEA Trust Heritage</small>
-                        </div>
+            <!-- Shelf Card 1 -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="c2-shelf-card">
+                    <div class="c2-shelf-icon">
+                        <i class="bi bi-shield-check"></i>
                     </div>
+                    <h4 class="fw-bold text-dark mb-2 c2-font-serif">15+ Years Trust Legacy</h4>
                     <p class="text-secondary small mb-3">
-                        Founded by visionary educators Dr. V. M. Valasang and Shri S. P. Dyavappanavar, delivering proven educational governance across North Karnataka.
+                        Founded by esteemed educationists Dr. V. M. Valasang and Shri S. P. Dyavappanavar, delivering disciplined governance and scholastic excellence.
                     </p>
-                    <a href="~/About/Management.aspx" runat="server" class="small fw-bold text-primary text-decoration-none">
+                    <a href="~/About/Management.aspx" runat="server" class="small fw-bold text-decoration-none" style="color: var(--c2-gold-dark);">
                         Meet Trust Leadership <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="heritage-shelf-card">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div class="feature-icon-circle bg-warning bg-opacity-10 text-warning">
-                            <i class="bi bi-award-fill"></i>
-                        </div>
-                        <div>
-                            <h5 class="fw-bold text-primary mb-0">100% Board Pass</h5>
-                            <small class="text-muted">CBSE Class X Track Record</small>
-                        </div>
+            <!-- Shelf Card 2 -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="c2-shelf-card">
+                    <div class="c2-shelf-icon">
+                        <i class="bi bi-award-fill"></i>
                     </div>
+                    <h4 class="fw-bold text-dark mb-2 c2-font-serif">100% Board Pass Record</h4>
                     <p class="text-secondary small mb-3">
-                        Unwavering academic performance with over 80% first-class distinctions, regional merit scholars, and state-level competitive rank holders.
+                        Uninterrupted track record of CBSE Class X board first-class results, merit scholars, and state competitive examination qualifiers.
                     </p>
-                    <a href="~/StudentLife/Achievements.aspx" runat="server" class="small fw-bold text-warning text-decoration-none">
+                    <a href="~/StudentLife/Achievements.aspx" runat="server" class="small fw-bold text-decoration-none" style="color: var(--c2-gold-dark);">
                         View Board Honors <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="col-md-4">
-                <div class="heritage-shelf-card">
-                    <div class="d-flex align-items-center gap-3 mb-3">
-                        <div class="feature-icon-circle bg-success bg-opacity-10 text-success">
-                            <i class="bi bi-laptop"></i>
-                        </div>
-                        <div>
-                            <h5 class="fw-bold text-primary mb-0">Integrated Foundation</h5>
-                            <small class="text-muted">IIT-JEE, NEET & NTSE</small>
-                        </div>
+            <!-- Shelf Card 3 -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="c2-shelf-card">
+                    <div class="c2-shelf-icon">
+                        <i class="bi bi-mortarboard"></i>
                     </div>
+                    <h4 class="fw-bold text-dark mb-2 c2-font-serif">Integrated PU Foundation</h4>
                     <p class="text-secondary small mb-3">
-                        High school students benefit from collaborative science coaching delivered by senior faculty of Chetan Pre-University Science College.
+                        Seamlessly aligned with senior professors from Chetan Pre-University Science College for specialized NTSE, Olympiad & IIT/NEET preparation.
                     </p>
-                    <a href="~/Academics/CompetitiveCoaching.aspx" runat="server" class="small fw-bold text-success text-decoration-none">
-                        Explore Foundation <i class="bi bi-arrow-right"></i>
+                    <a href="~/Academics/CompetitiveCoaching.aspx" runat="server" class="small fw-bold text-decoration-none" style="color: var(--c2-gold-dark);">
+                        Foundation Curriculum <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- D. Executive Leadership Voice -->
-    <section class="py-5 bg-white mt-4">
+    <!-- 3. LEADERSHIP VOICE: Principal's High-Table Dialogue -->
+    <section class="py-5 mt-4">
         <div class="container py-4">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-5 text-center">
-                    <div class="position-relative d-inline-block">
+            <div class="c2-leader-card" data-aos="fade-up">
+                <div class="c2-quote-mark">“</div>
+                <div class="row align-items-center g-5 position-relative" style="z-index: 2;">
+                    <div class="col-lg-4 text-center">
                         <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80" 
-                             alt="Principal Desk" class="img-fluid rounded-4 shadow-lg border border-3 border-warning" style="max-height: 380px; object-fit: cover;" />
-                        <div class="position-absolute bottom-0 start-50 translate-middle-x bg-primary text-white py-2 px-4 rounded-pill shadow small fw-bold" style="white-space: nowrap;">
-                            Smt. Savitri S. K. — Principal
+                             alt="Principal Desk" class="img-fluid rounded shadow" style="max-height: 340px; object-fit: cover; border: 3px solid var(--c2-gold);" />
+                        <div class="mt-3">
+                            <h5 class="fw-bold text-dark mb-0 c2-font-serif">Smt. Savitri S. K.</h5>
+                            <small class="text-muted fw-semibold">Principal, M.A., B.Ed.</small>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-7">
-                    <span class="badge-smart badge-gold-glow mb-2">Principal's Address</span>
-                    <h2 class="fw-bold text-primary display-6 mb-3">Nurturing Intellectual Depth & Moral Strength</h2>
-                    <div class="quote-executive-card mb-4">
-                        <p class="lead text-dark fst-italic mb-2">
-                            "At Chetan Public School, our endeavor is not just to prepare children for exams, but to equip them for life. We instill in our learners courage, empathy, rigorous inquiry, and a passion to serve society."
+                    <div class="col-lg-8">
+                        <span class="text-uppercase fw-bold small text-muted letter-spacing-1">From the Principal's Desk</span>
+                        <h2 class="display-6 fw-bold text-dark c2-font-serif mt-1 mb-3">
+                            "Cultivating Intellectual Depth, Moral Fortitude & Global Readiness"
+                        </h2>
+                        <p class="lead text-secondary fst-italic mb-4" style="line-height: 1.8;">
+                            Education is not simply the accumulation of factual knowledge, but the ignition of discernment, civic empathy, and moral grit. At Chetan Public School, our learners are guided to question deeply, reason logically, and stand firm in personal honor.
                         </p>
-                        <small class="text-muted fw-bold">— Smt. Savitri S. K., Principal, M.A., B.Ed.</small>
-                    </div>
-                    <div class="d-flex flex-wrap gap-3">
-                        <a href="~/About/PrincipalsDesk.aspx" runat="server" class="btn btn-primary fw-semibold px-4 py-2">
-                            Read Full Message <i class="bi bi-arrow-right ms-1"></i>
-                        </a>
-                        <a href="~/About/ManagingCommittee.aspx" runat="server" class="btn btn-outline-secondary px-4 py-2">
-                            School Managing Committee
-                        </a>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="~/About/PrincipalsDesk.aspx" runat="server" class="btn btn-dark px-4 py-2" style="background: var(--c2-navy);">
+                                Read Principal's Full Message <i class="bi bi-arrow-right ms-1"></i>
+                            </a>
+                            <a href="~/About/ManagingCommittee.aspx" runat="server" class="btn btn-outline-secondary px-4 py-2">
+                                School Managing Committee (SMC)
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- E. The Four CPS Houses: Character & Comradeship -->
-    <section class="py-5 bg-light">
+    <!-- 4. THE 4 GRAND HOUSES (Heraldic Showcase) -->
+    <section class="py-5" style="background: #f1f5f9;">
         <div class="container py-4">
-            <div class="text-center max-w-700 mx-auto mb-5">
-                <span class="badge-smart badge-cyan-glow mb-2">Student Leadership</span>
-                <h2 class="fw-bold text-primary display-6">The 4-House System</h2>
+            <div class="text-center max-w-700 mx-auto mb-5" data-aos="fade-up">
+                <span class="text-uppercase fw-bold small text-muted">Leadership & Character</span>
+                <h2 class="display-6 fw-bold text-dark c2-font-serif">The Four Revered Houses</h2>
                 <p class="text-muted">
-                    Fostering healthy camaraderie, teamwork, debate, arts, and athletic excellence through our four revered houses.
+                    Named after sacred Indian rivers, our house system inspires healthy brotherhood, debates, athletic championships, and social duty.
                 </p>
             </div>
 
             <div class="row g-4">
-                <div class="col-sm-6 col-lg-3">
-                    <div class="house-shield-card house-ganga h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="badge bg-white text-primary fw-bold">Blue Shield</span>
-                            <i class="bi bi-shield-fill fs-3 text-white-50"></i>
+                <!-- Ganga -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="c2-house-card">
+                        <div class="c2-house-banner c2-banner-ganga">
+                            <i class="bi bi-shield-fill fs-1 d-block mb-2"></i>
+                            <h4 class="fw-bold mb-0 c2-font-serif">Ganga House</h4>
+                            <small class="text-white-50 fst-italic">"Purity & Perseverance"</small>
                         </div>
-                        <h4 class="fw-bold mb-1">Ganga House</h4>
-                        <div class="small text-white-50 fst-italic mb-3">"Purity, Perseverance & Flow"</div>
-                        <p class="small mb-0 text-white opacity-90">Emphasizing intellectual honesty, literary excellence, and academic perseverance.</p>
+                        <div class="c2-house-body">
+                            <p class="small text-secondary mb-3">
+                                Champions in literary discourse, scholarly persistence, and ethical rectitude.
+                            </p>
+                            <span class="badge bg-light text-primary border">Blue Shield</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="house-shield-card house-yamuna h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="badge bg-white text-dark fw-bold">Yellow Shield</span>
-                            <i class="bi bi-shield-fill fs-3 text-white-50"></i>
+                <!-- Yamuna -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="c2-house-card">
+                        <div class="c2-house-banner c2-banner-yamuna">
+                            <i class="bi bi-shield-fill fs-1 d-block mb-2"></i>
+                            <h4 class="fw-bold mb-0 c2-font-serif">Yamuna House</h4>
+                            <small class="text-white-50 fst-italic">"Radiance & Courage"</small>
                         </div>
-                        <h4 class="fw-bold mb-1">Yamuna House</h4>
-                        <div class="small text-white-50 fst-italic mb-3">"Radiance, Courage & Warmth"</div>
-                        <p class="small mb-0 text-white opacity-90">Inspiring cultural expression, artistic innovation, and courageous team spirit.</p>
+                        <div class="c2-house-body">
+                            <p class="small text-secondary mb-3">
+                                Fostering dramatic expression, performing arts, and fearless team leadership.
+                            </p>
+                            <span class="badge bg-light text-warning border">Yellow Shield</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="house-shield-card house-kaveri h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="badge bg-white text-success fw-bold">Green Shield</span>
-                            <i class="bi bi-shield-fill fs-3 text-white-50"></i>
+                <!-- Kaveri -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="c2-house-card">
+                        <div class="c2-house-banner c2-banner-kaveri">
+                            <i class="bi bi-shield-fill fs-1 d-block mb-2"></i>
+                            <h4 class="fw-bold mb-0 c2-font-serif">Kaveri House</h4>
+                            <small class="text-white-50 fst-italic">"Harmony & Resilience"</small>
                         </div>
-                        <h4 class="fw-bold mb-1">Kaveri House</h4>
-                        <div class="small text-white-50 fst-italic mb-3">"Growth, Harmony & Resilience"</div>
-                        <p class="small mb-0 text-white opacity-90">Championing environmental stewardship, social service, and athletic endurance.</p>
+                        <div class="c2-house-body">
+                            <p class="small text-secondary mb-3">
+                                Dedicated to environmental sustainability, community service, and endurance athletics.
+                            </p>
+                            <span class="badge bg-light text-success border">Green Shield</span>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-sm-6 col-lg-3">
-                    <div class="house-shield-card house-godavari h-100">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <span class="badge bg-white text-danger fw-bold">Red Shield</span>
-                            <i class="bi bi-shield-fill fs-3 text-white-50"></i>
+                <!-- Godavari -->
+                <div class="col-sm-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                    <div class="c2-house-card">
+                        <div class="c2-house-banner c2-banner-godavari">
+                            <i class="bi bi-shield-fill fs-1 d-block mb-2"></i>
+                            <h4 class="fw-bold mb-0 c2-font-serif">Godavari House</h4>
+                            <small class="text-white-50 fst-italic">"Strength & Dignity"</small>
                         </div>
-                        <h4 class="fw-bold mb-1">Godavari House</h4>
-                        <div class="small text-white-50 fst-italic mb-3">"Strength, Dignity & Victory"</div>
-                        <p class="small mb-0 text-white opacity-90">Leading in track & field, discipline, martial arts, and strategic games.</p>
+                        <div class="c2-house-body">
+                            <p class="small text-secondary mb-3">
+                                Front-runners in martial discipline, track and field, and strategic athletic victories.
+                            </p>
+                            <span class="badge bg-light text-danger border">Red Shield</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="text-center mt-4">
-                <a href="~/StudentLife/HouseSystem.aspx" runat="server" class="btn btn-outline-primary fw-semibold px-4">
-                    <i class="bi bi-trophy me-1"></i> House Activities & Leadership Points
-                </a>
             </div>
         </div>
     </section>
 
-    <!-- F. Official Circulars & CBSE Mandatory Disclosures -->
-    <section class="py-5 bg-white">
+    <!-- 5. GAZETTE & CBSE DISCLOSURES -->
+    <section class="py-5">
         <div class="container py-4">
             <div class="row g-5">
-                <!-- Left: Circulars Repeater -->
-                <div class="col-lg-7">
+                <!-- Left: Circulars Gazette -->
+                <div class="col-lg-7" data-aos="fade-right">
                     <div class="d-flex justify-content-between align-items-center mb-4">
                         <div>
-                            <span class="badge-smart badge-gold-glow mb-1">Official Notices</span>
-                            <h3 class="fw-bold text-primary mb-0">Circulars & Announcements</h3>
+                            <span class="text-uppercase fw-bold small text-muted">Institutional Gazette</span>
+                            <h3 class="fw-bold text-dark c2-font-serif mb-0">Official Circulars & Notices</h3>
                         </div>
-                        <a href="~/News/NewsEvents.aspx" runat="server" class="small fw-bold text-primary">View All</a>
+                        <a href="~/News/NewsEvents.aspx" runat="server" class="small fw-bold text-decoration-none" style="color: var(--c2-gold-dark);">
+                            Archive <i class="bi bi-chevron-right"></i>
+                        </a>
                     </div>
 
-                    <div class="list-group list-group-flush shadow-sm rounded-4 border">
-                        <asp:Repeater ID="rptFeaturedNews" runat="server">
-                            <ItemTemplate>
-                                <div class="list-group-item p-3 list-group-item-action d-flex justify-content-between align-items-center gap-3">
-                                    <div class="d-flex align-items-center gap-3">
-                                        <div class="rounded-3 bg-light border text-center p-2" style="min-width: 60px;">
-                                            <span class="d-block fw-bold fs-5 text-primary"><%# Eval("PublishedDate", "{0:dd}") %></span>
-                                            <small class="text-muted text-uppercase" style="font-size: 0.7rem;"><%# Eval("PublishedDate", "{0:MMM}") %></small>
-                                        </div>
-                                        <div>
-                                            <span class="badge bg-light text-primary border mb-1"><%# Eval("Category") %></span>
-                                            <h6 class="fw-bold text-dark mb-1"><%# Eval("Title") %></h6>
-                                            <small class="text-muted"><%# Eval("Summary") != DBNull.Value ? Eval("Summary") : "" %></small>
-                                        </div>
+                    <asp:Repeater ID="rptFeaturedNews" runat="server">
+                        <ItemTemplate>
+                            <div class="c2-gazette-item d-flex justify-content-between align-items-center gap-3">
+                                <div>
+                                    <div class="d-flex align-items-center gap-2 mb-1">
+                                        <span class="badge bg-light text-dark border small"><%# Eval("Category") %></span>
+                                        <small class="text-muted"><%# Eval("PublishedDate", "{0:dd MMMM yyyy}") %></small>
                                     </div>
-                                    <a href='<%# ResolveUrl("~/News/NewsDetail.aspx?id=" + Eval("NewsId")) %>' class="btn btn-sm btn-outline-primary">
-                                        View
-                                    </a>
+                                    <h5 class="fw-bold text-dark mb-1 c2-font-serif"><%# Eval("Title") %></h5>
+                                    <p class="small text-muted mb-0"><%# Eval("Summary") != DBNull.Value ? Eval("Summary") : "" %></p>
                                 </div>
-                            </ItemTemplate>
-                        </asp:Repeater>
-                    </div>
+                                <a href='<%# ResolveUrl("~/News/NewsDetail.aspx?id=" + Eval("NewsId")) %>' class="btn btn-sm btn-outline-dark">
+                                    Read
+                                </a>
+                            </div>
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </div>
 
-                <!-- Right: CBSE Disclosures Card -->
-                <div class="col-lg-5">
-                    <div class="card border-0 bg-light rounded-4 p-4 shadow-sm h-100">
-                        <span class="badge-smart badge-cyan-glow mb-2">Statutory Transparency</span>
-                        <h4 class="fw-bold text-primary mb-3">CBSE Mandatory Disclosure (Appendix IX)</h4>
-                        <p class="text-muted small mb-4">
-                            In strict compliance with Central Board of Secondary Education guidelines, all institutional affiliations, NOCs, building safety, fire certificates, and academic staff ratios are publicly published.
+                <!-- Right: CBSE Appendix IX Mandatory Disclosure -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="card border-0 p-4 shadow-sm rounded-3" style="background: #ffffff; border: 1px solid #e2e8f0 !important;">
+                        <span class="text-uppercase fw-bold small" style="color: var(--c2-gold-dark);">CBSE Compliance</span>
+                        <h4 class="fw-bold text-dark c2-font-serif mb-3">Mandatory Public Disclosure (Appendix IX)</h4>
+                        <p class="small text-muted mb-4">
+                            In conformity with CBSE affiliation mandates, our statutory affidavits, NOCs, teacher ratios, building stability, and fee details are accessible to all parents.
                         </p>
-                        <div class="p-3 bg-white rounded-3 border mb-3">
-                            <div class="small fw-bold text-primary mb-1"><i class="bi bi-file-earmark-check-fill text-success me-2"></i> Documents & Information</div>
-                            <div class="small text-muted">Affiliation Extension, Society Registration, Land Certificate</div>
+                        <div class="p-3 bg-light rounded mb-3 border">
+                            <div class="fw-bold small text-dark"><i class="bi bi-file-earmark-check text-success me-2"></i> Section A: Documents & Information</div>
+                            <small class="text-muted">Society deed, affiliation grant, land lease certificate.</small>
                         </div>
-                        <div class="p-3 bg-white rounded-3 border mb-4">
-                            <div class="small fw-bold text-primary mb-1"><i class="bi bi-mortarboard-fill text-warning me-2"></i> Results & Academics</div>
-                            <div class="small text-muted">Fee Schedule, Academic Calendar, 3-Year Board Results</div>
+                        <div class="p-3 bg-light rounded mb-4 border">
+                            <div class="fw-bold small text-dark"><i class="bi bi-award text-warning me-2"></i> Section B: Results & Academics</div>
+                            <small class="text-muted">Annual calendar, 3-year board statistics, booklists.</small>
                         </div>
-                        <a href="~/Disclosures/MandatoryDisclosure.aspx" runat="server" class="btn btn-primary fw-bold w-100 py-3 shadow-sm">
-                            <i class="bi bi-file-earmark-pdf me-2"></i> Access Mandatory Disclosures
+                        <a href="~/Disclosures/MandatoryDisclosure.aspx" runat="server" class="btn btn-dark w-100 py-3 fw-bold" style="background: var(--c2-navy);">
+                            <i class="bi bi-file-earmark-pdf me-1"></i> Access Statutory Disclosures
                         </a>
                     </div>
                 </div>
@@ -372,53 +558,56 @@
         </div>
     </section>
 
-    <!-- G. Dynamic Admission Banner (ERP Link) -->
-    <section class="py-5 text-white text-center" style="background: #0b2545;">
+    <!-- 6. FORMAL ADMISSION INVITATION BANNER (Dynamic ERP / Drive Link) -->
+    <section class="py-5 text-center text-white" style="background: var(--c2-navy);">
         <div class="container py-4">
-            <span class="badge bg-warning text-dark px-3 py-2 fw-bold text-uppercase mb-3">Academic Session 2026-27</span>
-            <h2 class="display-6 fw-bold text-white mb-3">Enroll Your Child in a Legacy of Academic Rigor</h2>
-            <p class="lead text-white-50 max-w-700 mx-auto mb-4">
-                Admissions open from Pre-Primary (Kindergarten) to Class X. Download the complete prospectus and apply through our integrated ERP portal.
+            <span class="badge px-3 py-2 text-uppercase mb-3" style="background: var(--c2-gold); color: #081735; font-weight: 700;">
+                Academic Session 2026-27
+            </span>
+            <h2 class="display-6 fw-bold c2-font-serif mb-3">Join a Community of Scholastic Excellence</h2>
+            <p class="lead text-light opacity-75 max-w-700 mx-auto mb-4">
+                Enrollment is currently accepted for Kindergarten through Class X. Access digital applications directly through our ERP system.
             </p>
             <div class="d-flex flex-wrap justify-content-center gap-3">
-                <a id="lnkBottomAdmission" runat="server" target="_blank" class="btn btn-warning btn-lg fw-bold text-dark px-5 py-3 btn-shimmer shadow-lg">
-                    <i class="bi bi-box-arrow-up-right me-2"></i> Access Online Admission Form (ERP)
+                <a id="lnkBottomAdmission" runat="server" target="_blank" class="c2-btn-gold px-5 py-3">
+                    <i class="bi bi-box-arrow-up-right"></i>
+                    <span>Apply via ERP / Google Drive</span>
                 </a>
-                <a href="~/Admissions/FeeStructure.aspx" runat="server" class="btn btn-outline-light btn-lg fw-semibold px-4 py-3">
-                    <i class="bi bi-cash-stack me-2"></i> View Fee Structure
+                <a href="~/Admissions/FeeStructure.aspx" runat="server" class="c2-btn-outline px-4 py-3">
+                    <i class="bi bi-cash-stack"></i>
+                    <span>Fee Schedule & Criteria</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- H. Dynamic Important Notice Modal with Photo Upload -->
+    <!-- 7. Dynamic Notice Modal with Photo Upload -->
     <asp:Panel ID="pnlNoticeModal" runat="server" Visible="false">
         <div class="modal fade" id="schoolNoticeModal" tabindex="-1" aria-labelledby="schoolNoticeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-lg">
-                <div class="modal-content border-0 shadow-lg rounded-4 overflow-hidden">
-                    <div class="modal-header bg-primary text-white border-0 py-3">
-                        <h5 class="modal-title fw-bold" id="schoolNoticeModalLabel">
+                <div class="modal-content border-0 shadow-lg rounded-3 overflow-hidden">
+                    <div class="modal-header border-0 py-3 text-white" style="background: var(--c2-navy);">
+                        <h5 class="modal-title fw-bold text-white c2-font-serif" id="schoolNoticeModalLabel">
                             <i class="bi bi-megaphone-fill text-warning me-2"></i>
                             <asp:Literal ID="litModalTitle" runat="server" />
                         </h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body p-0 text-center">
-                        <asp:Image ID="imgModalPhoto" runat="server" CssClass="img-fluid w-100" Style="max-height: 480px; object-fit: contain; background-color: #0b2545;" />
+                        <asp:Image ID="imgModalPhoto" runat="server" CssClass="img-fluid w-100" Style="max-height: 480px; object-fit: contain; background-color: var(--c2-navy);" />
                         <div class="p-4 text-start">
-                            <p class="text-secondary lead fs-6 mb-3">
+                            <p class="lead fs-6 mb-3 text-dark">
                                 <asp:Literal ID="litModalDescription" runat="server" />
                             </p>
-                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-2 border-top">
+                            <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 pt-3 border-top">
                                 <span class="badge bg-light text-muted border py-2 px-3">
                                     <i class="bi bi-info-circle me-1"></i> Chetan Public School Official Bulletin
                                 </span>
                                 <div>
-                                    <asp:HyperLink ID="lnkModalAction" runat="server" Target="_blank" CssClass="btn btn-warning fw-bold text-dark px-4">
+                                    <asp:HyperLink ID="lnkModalAction" runat="server" Target="_blank" CssClass="c2-btn-gold py-2 px-3">
                                         <i class="bi bi-arrow-up-right-circle me-1"></i>
                                         <asp:Literal ID="litModalActionText" runat="server" Text="Learn More" />
                                     </asp:HyperLink>
-                                    <button type="button" class="btn btn-outline-secondary px-3 ms-2" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
@@ -427,4 +616,19 @@
             </div>
         </div>
     </asp:Panel>
+
+    <!-- AOS JS for Scroll Animations -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (window.AOS) {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-out-cubic',
+                    once: true,
+                    offset: 80
+                });
+            }
+        });
+    </script>
 </asp:Content>

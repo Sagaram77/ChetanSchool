@@ -25,21 +25,32 @@
                 <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 border-start border-4 border-primary">
                     <div class="row align-items-center g-4">
                         <div class="col-md-3 text-center">
-                            <div class="bg-primary text-white rounded-circle p-4 mx-auto d-flex align-items-center justify-content-center shadow" style="width: 120px; height: 120px;">
-                                <i class="bi bi-person-badge-fill fs-1"></i>
+                            <div class="position-relative mx-auto" style="width: 125px; height: 125px;">
+                                <asp:Image ID="imgPrincipalPhoto" runat="server" CssClass="rounded-circle border border-3 border-warning shadow object-fit-cover w-100 h-100" />
+                                <div id="divPrincipalIcon" runat="server" class="bg-primary text-white rounded-circle p-4 mx-auto d-flex align-items-center justify-content-center shadow w-100 h-100">
+                                    <i class="bi bi-person-badge-fill fs-1"></i>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-9">
-                            <h3 class="fw-bold text-primary mb-1">Dr. Jerushah R. Nadugaddi</h3>
-                            <div class="text-secondary fw-semibold mb-2">Principal & Member Secretary, SMC</div>
-                            <div class="d-flex flex-wrap gap-2 mb-2">
-                                <span class="badge bg-light text-primary border">Ph.D.</span>
-                                <span class="badge bg-light text-primary border">M.Phil.</span>
-                                <span class="badge bg-light text-primary border">M.Sc. (Botany/Biology)</span>
-                                <span class="badge bg-light text-primary border">M.A.</span>
-                                <span class="badge bg-light text-primary border">M.Ed.</span>
+                            <h3 class="fw-bold text-primary mb-1">
+                                <asp:Literal ID="litPrincipalName" runat="server">Dr. Jerushah R. Nadugaddi</asp:Literal>
+                            </h3>
+                            <div class="text-secondary fw-semibold mb-2">
+                                <asp:Literal ID="litPrincipalDesignation" runat="server">Principal & Member Secretary, SMC</asp:Literal>
                             </div>
-                            <p class="small text-muted m-0">24+ Years of Dedicated Service in CBSE & Higher Secondary Education</p>
+                            <div class="d-flex flex-wrap gap-2 mb-2">
+                                <asp:Literal ID="litPrincipalQualifications" runat="server">
+                                    <span class="badge bg-light text-primary border">Ph.D.</span>
+                                    <span class="badge bg-light text-primary border">M.Phil.</span>
+                                    <span class="badge bg-light text-primary border">M.Sc. (Botany/Biology)</span>
+                                    <span class="badge bg-light text-primary border">M.A.</span>
+                                    <span class="badge bg-light text-primary border">M.Ed.</span>
+                                </asp:Literal>
+                            </div>
+                            <p class="small text-muted m-0">
+                                <asp:Literal ID="litPrincipalExp" runat="server">24+ Years of Dedicated Service in CBSE & Higher Secondary Education</asp:Literal>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -80,22 +91,26 @@
                     </p>
 
                     <div class="border-top pt-3 text-end">
-                        <h6 class="fw-bold text-primary mb-0">Dr. Jerushah R. Nadugaddi</h6>
+                        <h6 class="fw-bold text-primary mb-0"><asp:Literal ID="litSignOffName" runat="server">Dr. Jerushah R. Nadugaddi</asp:Literal></h6>
                         <small class="text-muted">Principal, Chetan Public School, Hubballi</small>
                     </div>
                 </div>
 
-                <!-- Vice Principal Box -->
-                <div class="card border-0 shadow-sm rounded-4 p-4 mt-4 bg-light">
-                    <div class="d-flex align-items-center gap-3">
-                        <div class="bg-warning text-dark rounded-circle p-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 70px; height: 70px;">
-                            <i class="bi bi-person-fill fs-2"></i>
+                <!-- Link to Vice Principal's Desk -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 mt-4 bg-light border-start border-4 border-warning">
+                    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-warning text-dark rounded-circle d-flex align-items-center justify-content-center shadow-sm flex-shrink-0" style="width: 55px; height: 55px;">
+                                <i class="bi bi-person-video3 fs-3"></i>
+                            </div>
+                            <div>
+                                <h6 class="fw-bold text-primary mb-1">Message from the Vice Principal</h6>
+                                <p class="small text-muted mb-0">Read about our academic discipline, House system & holistic activities.</p>
+                            </div>
                         </div>
-                        <div>
-                            <h5 class="fw-bold text-primary mb-1">Mrs. Roopa Ramakantha Pai</h5>
-                            <div class="small text-secondary fw-semibold">Vice Principal & Academic Coordinator</div>
-                            <div class="small text-muted">Qualifications: M.Phil., M.A., B.Ed., DCA &bull; 18+ Years Experience</div>
-                        </div>
+                        <a href="~/About/VicePrincipalsDesk.aspx" runat="server" class="btn btn-outline-primary btn-sm px-3 fw-bold">
+                            Visit Vice Principal's Desk <i class="bi bi-arrow-right ms-1"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -111,6 +126,7 @@
                             <a href="~/About/AboutUs.aspx" runat="server" class="list-group-item list-group-item-action">About School</a>
                             <a href="~/About/VisionMission.aspx" runat="server" class="list-group-item list-group-item-action">Vision & Mission</a>
                             <a href="~/About/PrincipalsDesk.aspx" runat="server" class="list-group-item list-group-item-action active fw-bold">Principal's Desk</a>
+                            <a href="~/About/VicePrincipalsDesk.aspx" runat="server" class="list-group-item list-group-item-action">Vice Principal's Desk</a>
                             <a href="~/About/Management.aspx" runat="server" class="list-group-item list-group-item-action">Trust Management</a>
                             <a href="~/About/ManagingCommittee.aspx" runat="server" class="list-group-item list-group-item-action">Managing Committee (SMC)</a>
                         </div>

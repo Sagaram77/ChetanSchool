@@ -14,6 +14,10 @@
     <!-- Custom School & Admin Styles -->
     <link href="~/Assets/css/style.css" rel="stylesheet" />
 
+    <!-- Official School Favicon -->
+    <link rel="icon" type="image/png" href='<%= ResolveUrl("~/Assets/images/logo.png") %>' />
+    <link rel="apple-touch-icon" href='<%= ResolveUrl("~/Assets/images/logo.png") %>' />
+
     <asp:ContentPlaceHolder ID="AdminHead" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -22,15 +26,13 @@
         <div class="d-flex" style="min-height: 100vh;">
             <!-- Admin Sidebar -->
             <aside class="admin-sidebar d-flex flex-column flex-shrink-0 p-3" style="width: 260px;">
-                <div class="d-flex align-items-center mb-4 text-white text-decoration-none">
-                    <div class="bg-warning text-dark rounded-circle p-2 me-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
-                        <i class="bi bi-shield-lock-fill fs-5"></i>
-                    </div>
+                <a href="~/Admin/Dashboard.aspx" runat="server" class="d-flex align-items-center mb-4 text-white text-decoration-none">
+                    <img src='<%= ResolveUrl("~/Assets/images/logo.png") %>' alt="CPS Logo" class="rounded-circle me-2 bg-white p-1 shadow-sm" style="width: 42px; height: 42px; object-fit: contain;" />
                     <div>
                         <div class="fw-bold fs-6">CPS ADMIN</div>
                         <div class="small text-secondary" style="font-size: 0.75rem;">Control Dashboard</div>
                     </div>
-                </div>
+                </a>
                 <hr class="border-secondary my-2">
                 
                 <ul class="nav nav-pills flex-column mb-auto">

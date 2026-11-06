@@ -64,10 +64,20 @@
             </div>
 
             <div class="col-md-6">
-                <label class="form-label fw-semibold small">Photo Upload</label>
-                <asp:FileUpload ID="fuPhoto" runat="server" CssClass="form-control mb-1" />
-                <asp:HiddenField ID="hfExistingPhoto" runat="server" />
-                <small class="text-muted">Passport photo (JPG, PNG). Leave blank to keep existing.</small>
+                <label class="form-label fw-semibold small">Photo Upload & Live Preview</label>
+                <div class="d-flex align-items-center gap-3 p-2 bg-light rounded-3 border">
+                    <div class="position-relative flex-shrink-0" style="width: 75px; height: 75px;">
+                        <asp:Image ID="imgPhotoPreview" runat="server" CssClass="rounded-circle border border-2 border-primary shadow-sm object-fit-cover w-100 h-100" Style="display: none;" />
+                        <div id="divPlaceholderIcon" runat="server" class="bg-white rounded-circle border border-2 border-secondary-subtle d-flex align-items-center justify-content-center w-100 h-100 shadow-sm">
+                            <i class="bi bi-person-bounding-box fs-3 text-secondary"></i>
+                        </div>
+                    </div>
+                    <div class="flex-grow-1">
+                        <asp:FileUpload ID="fuPhoto" runat="server" CssClass="form-control form-control-sm mb-1" onchange="previewStaffPhoto(this);" />
+                        <asp:HiddenField ID="hfExistingPhoto" runat="server" />
+                        <small class="text-muted d-block" style="font-size: 0.78rem;">Passport photo (JPG, PNG, WebP). Max 2MB. Leave blank to keep existing.</small>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-3">
@@ -103,6 +113,16 @@
                 <Columns>
                     <asp:BoundField DataField="DisplayOrder" HeaderText="ORDER" ItemStyle-CssClass="px-3 fw-bold" ItemStyle-Width="60px" />
                     
+                    <asp:TemplateField HeaderText="PHOTO" ItemStyle-CssClass="px-3 text-center" ItemStyle-Width="70px">
+                        <ItemTemplate>
+                            <%# !string.IsNullOrEmpty(Eval("PhotoUrl") as string) ?
+                                "<img src='" + ResolveUrl(Eval("PhotoUrl").ToString()) + "' class='rounded-circle border border-2 border-primary shadow-sm object-fit-cover' style='width: 44px; height: 44px;' onerror=\"this.style.display='none';this.nextElementSibling.style.display='inline-flex';\" />" : "" %>
+                            <div class="rounded-circle bg-light border text-secondary align-items-center justify-content-center" style='<%# !string.IsNullOrEmpty(Eval("PhotoUrl") as string) ? "display:none; width: 44px; height: 44px;" : "display:inline-flex; width: 44px; height: 44px;" %>'>
+                                <i class="bi bi-person-fill fs-5"></i>
+                            </div>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField HeaderText="MEMBER" ItemStyle-CssClass="px-3">
                         <ItemTemplate>
                             <div class="fw-bold text-primary"><%# Eval("FullName") %></div>
@@ -145,4 +165,29 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="AdminScripts" runat="server">
+    <script>
+        function previewStaffPhoto(input) {
+            if (input.files && input.files[0]) {
+                var file = input.files[0];
+                if (!file.type.match('image.*')) {
+                    alert('Please select an image file (JPG, PNG, WebP).');
+                    input.value = '';
+                    return;
+                }
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var img = document.getElementById('<%= imgPhotoPreview.ClientID %>');
+                    var placeholder = document.getElementById('<%= divPlaceholderIcon.ClientID %>');
+                    if (img) {
+                        img.src = e.target.result;
+                        img.style.display = 'block';
+                    }
+                    if (placeholder) {
+                        placeholder.style.display = 'none';
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
 </asp:Content>

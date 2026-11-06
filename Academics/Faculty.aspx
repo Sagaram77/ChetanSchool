@@ -49,8 +49,12 @@
                 <ItemTemplate>
                     <div class="col-sm-6 col-lg-3">
                         <div class="faculty-card">
-                            <div class="bg-light rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center border border-2 border-warning shadow-sm" style="width: 90px; height: 90px;">
-                                <i class="bi bi-person-fill fs-1 text-primary"></i>
+                            <div class="position-relative mx-auto mb-3" style="width: 100px; height: 100px;">
+                                <%# !string.IsNullOrEmpty(Eval("PhotoUrl") as string) ? 
+                                    "<img src='" + ResolveUrl(Eval("PhotoUrl").ToString()) + "' alt='" + Eval("FullName") + "' class='faculty-photo rounded-circle border border-2 border-warning shadow-sm object-fit-cover w-100 h-100 m-0' onerror=\"this.style.display='none';this.nextElementSibling.style.display='flex';\" />" : "" %>
+                                <div class="bg-light rounded-circle align-items-center justify-content-center border border-2 border-warning shadow-sm w-100 h-100" style='<%# !string.IsNullOrEmpty(Eval("PhotoUrl") as string) ? "display:none;" : "display:flex;" %>'>
+                                    <i class="bi bi-person-fill fs-1 text-primary"></i>
+                                </div>
                             </div>
                             <h6 class="faculty-name"><%# Eval("FullName") %></h6>
                             <div class="faculty-designation"><%# Eval("Designation") %></div>
